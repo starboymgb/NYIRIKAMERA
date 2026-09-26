@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details — Nyirikamera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131c2e',
+                        accent: '#f59e0b',
+                        accentHover: '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkBg text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-yellow-300 flex items-center justify-center shadow-lg shadow-accent/20">
+                    <i class="fa-solid fa-camera-retro text-black text-xl"></i>
+                </div>
+                <span class="text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-gray-200 to-accent bg-clip-text text-transparent">
+                    Nyirikamera
+                </span>
+            </a>
+            <a href="index.html" class="text-xs font-semibold text-gray-400 hover:text-accent transition-colors">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Back to Store
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        <div id="product-detail-container" class="bg-cardBg border border-gray-800 rounded-3xl p-8 sm:p-12 shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <!-- Loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-darkBg border-t border-gray-800 py-8 text-center text-xs text-gray-500">
+        <p>© 2026 Nyirikamera. Kigali, Rwanda.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            const defaultProducts = [
+                { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", oldPrice: "2,500,000 RWF", discount: "-2%", stock: "1 in Stock", icon: "fa-camera", isSold: false },
+                { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", oldPrice: "3,000,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-video", isSold: false },
+                { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", oldPrice: "500,000 RWF", discount: "-2%", stock: "2 in Stock", icon: "fa-microphone", isSold: false },
+                { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt", isSold: false }
+            ];
+
+            const stored = localStorage.getItem('nyirikamera_products');
+            const products = stored ? JSON.parse(stored) : defaultProducts;
+            const product = products.find(p => p.id == productId);
+
+            const container = document.getElementById('product-detail-container');
+
+            if (!product) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-10">
+                        <h2 class="text-xl font-bold text-white mb-2">Product Not Found</h2>
+                        <a href="index.html" class="text-accent underline text-sm">Return to Store</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="h-72 bg-gray-950 rounded-2xl flex items-center justify-center relative border border-gray-800">
+                    <span class="absolute top-3 left-3 bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold px-3 py-1 rounded-full">${product.discount || 'New'}</span>
+                    <i class="fa-solid ${product.icon || 'fa-camera'} text-gray-700 text-7xl"></i>
+                </div>
+                <div class="space-y-4">
+                    <span class="text-accent text-xs font-bold uppercase tracking-wider">${product.category} • ${product.stock}</span>
+                    <h1 class="text-2xl sm:text-3xl font-black text-white">${product.title}</h1>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-2xl font-black text-accent">${product.price}</span>
+                        ${product.oldPrice ? `<span class="text-sm text-gray-500 line-through">${product.oldPrice}</span>` : ''}
+                    </div>
+                    <div class="pt-4 border-t border-gray-800">
+                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20order%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.price)}" target="_blank"
+                           class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center space-x-2 transition-all shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Order via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

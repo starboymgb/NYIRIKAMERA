@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const whatsappMessage = `Hello Nyirikamera! I want to sell/trade-in some gear:%0A%0A*Item(s):* ${encodeURIComponent(itemName)}%0A*Condition:* ${encodeURIComponent(itemCondition)}%0A*Included Accessories:* ${encodeURIComponent(itemAccessories)}%0A*Expected Price:* ${encodeURIComponent(itemPrice)}`;
 
-            const whatsappUrl = `https://wa.me/250780000000?text=${whatsappMessage}`;
+            const whatsappUrl = `https://wa.me/250782815825?text=${whatsappMessage}`;
             window.open(whatsappUrl, '_blank');
         });
     }

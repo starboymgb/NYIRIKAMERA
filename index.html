@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Social Media / WhatsApp Preview Meta Tags -->
+    <!-- SEO & Social Media Meta Tags -->
     <title>Nyirikamera — Master of Visual Storytelling & Camera Gear</title>
     <meta name="title" content="Nyirikamera — Master of Visual Storytelling & Camera Gear">
     <meta name="description" content="Buy verified new & used professional camera gear, trade in your old equipment, or book top-tier event coverage in Kigali, Rwanda.">
@@ -24,16 +24,14 @@
                     colors: {
                         darkBg: '#0b0f19',
                         cardBg: '#131c2e',
-                        accent: '#f59e0b', /* Amber */
+                        accent: '#f59e0b',
                         accentHover: '#d97706',
                     }
                 }
             }
         }
     </script>
-    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-darkBg text-gray-100 font-sans antialiased selection:bg-accent selection:text-black">
@@ -48,9 +46,8 @@
                 <span class="text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-gray-200 to-accent bg-clip-text text-transparent">
                     Nyirikamera
                 </span>
-            </a>
+            </div>
 
-            <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
                 <a href="#home" class="hover:text-accent transition-colors">Home</a>
                 <a href="#gear" class="hover:text-accent transition-colors">Gear Shop</a>
@@ -59,8 +56,7 @@
                 <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
             </nav>
 
-            <!-- WhatsApp Direct CTA -->
-            <div class="hidden md:block">
+            <div class="hidden md:flex items-center space-x-4">
                 <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20would%20like%20to%20inquire%20about..." target="_blank" 
                    class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm flex items-center space-x-2 transition-all shadow-lg shadow-emerald-900/30">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -68,24 +64,9 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
             <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none text-2xl">
                 <i class="fa-solid fa-bars"></i>
             </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#home" class="block py-2 text-gray-300 hover:text-accent">Home</a>
-            <a href="#gear" class="block py-2 text-gray-300 hover:text-accent">Gear Shop</a>
-            <a href="#services" class="block py-2 text-gray-300 hover:text-accent">Bookings</a>
-            <a href="#sell" class="block py-2 text-gray-300 hover:text-accent">Sell / Trade-In</a>
-            <a href="#contact" class="block py-2 text-gray-300 hover:text-accent">Contact</a>
-            <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!" target="_blank" 
-               class="w-full bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-3 rounded-xl font-semibold text-center flex items-center justify-center space-x-2 mt-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Chat on WhatsApp</span>
-            </a>
         </div>
     </header>
 
@@ -115,14 +96,12 @@
                     </div>
                 </div>
 
-                <!-- Hero Visual / Card -->
                 <div class="lg:col-span-5">
                     <div class="relative bg-gradient-to-b from-cardBg to-gray-900 border border-gray-800 p-6 rounded-3xl shadow-2xl">
                         <div class="absolute -top-3 -right-3 bg-accent text-black font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider z-20">
                             Verified Gear
                         </div>
                         <div class="h-64 rounded-2xl bg-gray-950 flex items-center justify-center overflow-hidden relative group">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
                             <i class="fa-solid fa-camera text-gray-700 text-8xl group-hover:scale-110 transition-transform duration-500"></i>
                             <div class="absolute bottom-4 left-4 z-20">
                                 <span class="text-xs uppercase tracking-widest text-accent font-bold">Featured Listing</span>
@@ -155,7 +134,6 @@
                     <span class="text-accent text-sm font-bold tracking-widest uppercase">Marketplace</span>
                     <h2 class="text-3xl sm:text-4xl font-black mt-1">Cameras & Accessories</h2>
                 </div>
-                <!-- Filter Tabs -->
                 <div class="mt-6 md:mt-0 flex space-x-2 bg-cardBg p-1.5 rounded-xl border border-gray-800">
                     <button class="filter-btn active px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-accent text-black" data-filter="all">All Gear</button>
                     <button class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-gray-400 hover:text-white" data-filter="used">Used & Verified</button>
@@ -163,78 +141,14 @@
                 </div>
             </div>
 
-            <!-- Gear Grid -->
+            <!-- Dynamic Gear Grid injected via main.js -->
             <div id="gear-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Item 1 -->
-                <div class="gear-card bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="used">
-                    <div>
-                        <div class="h-56 bg-gray-900 flex items-center justify-center relative">
-                            <span class="absolute top-3 left-3 bg-amber-500/20 border border-accent/40 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase z-10">Used • Grade A</span>
-                            <i class="fa-solid fa-camera-retro text-gray-700 text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-1">Canon EOS R6</h3>
-                            <p class="text-gray-400 text-sm mb-4">Includes EF-EOS R Adapter & 1 Battery. Low shutter count.</p>
-                            <div class="text-2xl font-extrabold text-accent">1,850,000 RWF</div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20am%20interested%20in%20buying%20the%20Canon%20EOS%20R6%20listed%20at%201,850,000%20RWF." target="_blank"
-                           class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl flex items-center justify-center space-x-2 transition-all">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>Inquire on WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="gear-card bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="new">
-                    <div>
-                        <div class="h-56 bg-gray-900 flex items-center justify-center relative">
-                            <span class="absolute top-3 left-3 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase z-10">Brand New</span>
-                            <i class="fa-solid fa-video text-gray-700 text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-1">Sony FX30 Cinema Line</h3>
-                            <p class="text-gray-400 text-sm mb-4">Body only, boxed with full manufacturer warranty.</p>
-                            <div class="text-2xl font-extrabold text-accent">2,100,000 RWF</div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20am%20interested%20in%20buying%20the%20Sony%20FX30%20Cinema%20Line%20listed%20at%202,100,000%20RWF." target="_blank"
-                           class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl flex items-center justify-center space-x-2 transition-all">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>Inquire on WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="gear-card bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="used">
-                    <div>
-                        <div class="h-56 bg-gray-900 flex items-center justify-center relative">
-                            <span class="absolute top-3 left-3 bg-amber-500/20 border border-accent/40 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase z-10">Used • Grade B+</span>
-                            <i class="fa-solid fa-camera-rotate text-gray-700 text-6xl"></i>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-1">Sigma 24-70mm f/2.8 DG DN</h3>
-                            <p class="text-gray-400 text-sm mb-4">E-Mount lens, pristine glass, minor barrel wear.</p>
-                            <div class="text-2xl font-extrabold text-accent">950,000 RWF</div>
-                        </div>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20am%20interested%20in%20buying%20the%20Sigma%2024-70mm%20f/2.8%20DG%20DN%20listed%20at%20950,000%20RWF." target="_blank"
-                           class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl flex items-center justify-center space-x-2 transition-all">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>Inquire on WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
+                <!-- Products load here dynamically -->
             </div>
         </div>
     </section>
 
-    <!-- EVENT BOOKINGS & SERVICES SECTION -->
+    <!-- EVENT BOOKINGS SECTION -->
     <section id="services" class="py-20 border-t border-gray-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -244,7 +158,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Tier 1 -->
                 <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 flex flex-col justify-between">
                     <div>
                         <div class="text-accent font-bold text-sm uppercase tracking-wider mb-2">Standard Package</div>
@@ -253,21 +166,16 @@
                         <ul class="space-y-3 text-gray-300 text-sm mb-8">
                             <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>1 Lead Videographer & Photographer</span></li>
                             <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Full HD / 4K Cinematic Highlight Edit</span></li>
-                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Edited Photos Delivered via Cloud</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20would%20like%20to%20book%20the%20Standard%20Package%20for%20my%20event." target="_blank"
+                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20want%20to%20book%20the%20Standard%20Package." target="_blank"
                        class="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 rounded-xl text-center border border-gray-700 transition-all flex items-center justify-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
-                        <span>Book via WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i><span>Book via WhatsApp</span>
                     </a>
                 </div>
 
-                <!-- Tier 2 (Highlighted) -->
                 <div class="bg-gradient-to-b from-cardBg to-gray-900 border-2 border-accent rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl shadow-accent/10">
-                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-accent text-black font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">
-                        Most Popular
-                    </div>
+                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-accent text-black font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
                     <div>
                         <div class="text-accent font-bold text-sm uppercase tracking-wider mb-2">Complete Coverage</div>
                         <h3 class="text-2xl font-black text-white mb-4">Weddings & Introductions</h3>
@@ -275,18 +183,14 @@
                         <ul class="space-y-3 text-gray-300 text-sm mb-8">
                             <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Multi-Camera Setup & Drone Coverage</span></li>
                             <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Cinematic Trailer + Full Ceremony Edit</span></li>
-                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Professional Audio Recording & Lighting</span></li>
-                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Unlimited Edited High-Res Photos</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20would%20like%20to%20book%20the%20Wedding%20Complete%20Coverage%20Package." target="_blank"
+                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20want%20to%20book%20Complete%20Wedding%20Coverage." target="_blank"
                        class="w-full bg-accent hover:bg-accentHover text-black font-bold py-3 rounded-xl text-center shadow-lg transition-all flex items-center justify-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Book via WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-lg"></i><span>Book via WhatsApp</span>
                     </a>
                 </div>
 
-                <!-- Tier 3 -->
                 <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 flex flex-col justify-between">
                     <div>
                         <div class="text-accent font-bold text-sm uppercase tracking-wider mb-2">Commercial / Music</div>
@@ -294,14 +198,12 @@
                         <div class="text-3xl font-black text-accent mb-6">Custom Quote</div>
                         <ul class="space-y-3 text-gray-300 text-sm mb-8">
                             <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Creative Direction & Storyboarding</span></li>
-                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Cinema Cameras & Professional Gimbals</span></li>
-                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Color Grading & Sound Design</span></li>
+                            <li class="flex items-center space-x-3"><i class="fa-solid fa-check text-accent"></i><span>Cinema Cameras & Gimbals</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20need%20a%20custom%20quote%20for%20a%20commercial/music%20video%20project." target="_blank"
+                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera!%20I%20need%20a%20custom%20quote." target="_blank"
                        class="w-full bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 rounded-xl text-center border border-gray-700 transition-all flex items-center justify-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
-                        <span>Get Custom Quote</span>
+                        <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i><span>Get Custom Quote</span>
                     </a>
                 </div>
             </div>
@@ -315,50 +217,42 @@
                 <div class="text-center max-w-xl mx-auto mb-10">
                     <span class="text-accent text-sm font-bold tracking-widest uppercase">Instant Valuation</span>
                     <h2 class="text-3xl font-black mt-1">Sell or Trade-In Your Gear</h2>
-                    <p class="text-gray-400 text-sm mt-2">Have a camera or lens you want to upgrade? Fill out the details below to generate a pre-filled WhatsApp message for quick valuation.</p>
+                    <p class="text-gray-400 text-sm mt-2">Have gear to upgrade? Fill out details below to generate a pre-filled WhatsApp message for quick valuation.</p>
                 </div>
-
                 <form id="tradein-form" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-300 mb-2">Item Name & Brand</label>
-                            <input type="text" id="item-name" required placeholder="e.g. Sony A7III with 28-70mm lens" 
-                                   class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
+                            <input type="text" id="item-name" required placeholder="e.g. Sony A7III with lens" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-300 mb-2">Condition</label>
                             <select id="item-condition" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
                                 <option value="Like New (Mint)">Like New (Mint)</option>
                                 <option value="Good (Minor wear)">Good (Minor wear)</option>
-                                <option value="Fair (Heavy use / functional)">Fair (Heavy use / functional)</option>
-                                <option value="Needs Repair / Parts">Needs Repair / Parts</option>
+                                <option value="Fair (Heavy use)">Fair (Heavy use)</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Included Accessories</label>
-                            <input type="text" id="item-accessories" placeholder="e.g. 2 batteries, charger, original box" 
-                                   class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Accessories Included</label>
+                            <input type="text" id="item-accessories" placeholder="e.g. 2 batteries, box" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-300 mb-2">Expected Price (RWF)</label>
-                            <input type="text" id="item-price" placeholder="e.g. 1,200,000 RWF" 
-                                   class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
+                            <input type="text" id="item-price" placeholder="e.g. 1,200,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent">
                         </div>
                     </div>
-
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl text-center shadow-lg shadow-emerald-900/30 transition-all flex items-center justify-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Send Trade-In Inquiry via WhatsApp</span>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl text-center shadow-lg transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i><span>Send Trade-In Inquiry via WhatsApp</span>
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER WITH ADMIN TRIGGER -->
     <footer id="contact" class="bg-darkBg border-t border-gray-800 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <div class="flex items-center space-x-3">
@@ -368,15 +262,83 @@
                 <span class="text-xl font-black tracking-wider uppercase text-white">Nyirikamera</span>
             </div>
             <p class="text-sm text-gray-500 text-center">© 2026 Nyirikamera.com. All rights reserved. Kigali, Rwanda.</p>
-            <div class="flex space-x-6 text-gray-400">
-                <a href="https://wa.me/250782815825" target="_blank" class="hover:text-accent transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
-                <a href="#" class="hover:text-accent transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="#" class="hover:text-accent transition-colors"><i class="fa-brands fa-youtube text-xl"></i></a>
+            <div class="flex items-center space-x-6">
+                <a href="https://wa.me/250782815825" target="_blank" class="text-gray-400 hover:text-accent transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+                <!-- Discreet Admin Access Button -->
+                <button id="open-admin-btn" class="text-xs text-gray-600 hover:text-accent transition-colors border border-gray-800 px-3 py-1.5 rounded-lg">
+                    <i class="fa-solid fa-lock mr-1"></i> Admin Panel
+                </button>
             </div>
         </div>
     </footer>
 
-    <!-- Custom JavaScript -->
+    <!-- ADMIN DASHBOARD MODAL (Hidden by default) -->
+    <div id="admin-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cardBg border border-gray-700 w-full max-w-3xl rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-black font-bold">
+                        <i class="fa-solid fa-gauge"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">Nyirikamera Admin Dashboard</h3>
+                </div>
+                <button id="close-admin-btn" class="text-gray-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Add Product Form -->
+            <form id="add-product-form" class="space-y-4 mb-8 bg-gray-950/60 p-6 rounded-2xl border border-gray-800">
+                <h4 class="text-accent font-bold text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-plus-circle mr-1"></i> Add New Product</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Product Title</label>
+                        <input type="text" id="p-title" required placeholder="e.g. Sony FX3 Cinema Camera" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:border-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Price (RWF)</label>
+                        <input type="text" id="p-price" required placeholder="e.g. 3,500,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:border-accent">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Category Type</label>
+                        <select id="p-category" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:border-accent">
+                            <option value="used">Used & Verified</option>
+                            <option value="new">Brand New</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Condition Badge</label>
+                        <input type="text" id="p-badge" placeholder="e.g. Used • Mint" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:border-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Icon / Image Style</label>
+                        <select id="p-icon" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:border-accent">
+                            <option value="fa-camera">Camera Body</option>
+                            <option value="fa-video">Cinema Rig</option>
+                            <option value="fa-camera-rotate">Lens</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Short Description</label>
+                    <input type="text" id="p-desc" placeholder="e.g. Low shutter count, pristine condition with battery." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:border-accent">
+                </div>
+                <button type="submit" class="w-full bg-accent hover:bg-accentHover text-black font-bold py-2.5 rounded-xl text-sm transition-all">
+                    Publish Product to Store
+                </button>
+            </form>
+
+            <!-- Manage Existing Products List -->
+            <div>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4"><i class="fa-solid fa-boxes-stacked mr-1"></i> Manage Inventory & Mark Sold</h4>
+                <div id="admin-inventory-list" class="space-y-3 max-h-60 overflow-y-auto pr-2">
+                    <!-- Inventory items populate here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS -->
     <script src="js/main.js"></script>
 </body>
 </html>

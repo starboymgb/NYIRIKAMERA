@@ -96,22 +96,21 @@
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Badge Tag</label>
-                                <input type="text" id="p-discount" placeholder="e.g. Most Popular / -10%" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                                <input type="text" id="p-discount" placeholder="e.g. For Rent / Best Seller" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
                             <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Current Price *</label>
-                                <input type="text" id="p-price" required placeholder="e.g. 1,500,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Selling Price (Optional)</label>
+                                <input type="text" id="p-price" placeholder="e.g. 2,400,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Old Price / Value</label>
-                                <input type="text" id="p-oldprice" placeholder="e.g. 1,800,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Rental Price / Day (Optional)</label>
+                                <input type="text" id="p-rental" placeholder="e.g. 50,000 RWF / day" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
                             </div>
                         </div>
 
-                        <!-- NEW IMAGE UPLOAD FILE PICKER -->
                         <div>
                             <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Upload Product Image (From Device)</label>
                             <input type="file" id="p-image-file" accept="image/*" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2 text-xs text-gray-300 file:mr-4 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-accent file:text-black hover:file:bg-accentHover cursor-pointer">
@@ -153,15 +152,15 @@
     <!-- SCRIPT -->
     <script>
         const defaultProducts = [
-            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", oldPrice: "2,500,000 RWF", discount: "-2%", stock: "1 in Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
-            { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", oldPrice: "3,000,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
-            { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", oldPrice: "500,000 RWF", discount: "-2%", stock: "2 in Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
-            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
-            { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", oldPrice: "1,100,000 RWF", discount: "-10%", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
-            { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", oldPrice: "4,100,000 RWF", discount: "-5%", stock: "1 in Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
-            { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", oldPrice: "1,800,000 RWF", discount: "Most Popular", stock: "Full Day Coverage", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
-            { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", oldPrice: "2,500,000 RWF", discount: "Pro Setup", stock: "3 Cameras + Live Feed", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
-            { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", oldPrice: "1,000,000 RWF", discount: "Director's Pick", stock: "4K Cinema Production", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
+            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", rentalPrice: "60,000 RWF / day", discount: "For Rent & Sale", stock: "In Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
+            { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", rentalPrice: "70,000 RWF / day", discount: "Popular Rental", stock: "In Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
+            { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Pro Audio", stock: "In Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
+            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", rentalPrice: "25,000 RWF / day", discount: "Lighting Kit", stock: "In Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
+            { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", rentalPrice: "35,000 RWF / day", discount: "Top Gimbal", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
+            { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", rentalPrice: "", discount: "Editing Suite", stock: "In Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
+            { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", rentalPrice: "", discount: "Most Popular", stock: "Full Day", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
+            { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", rentalPrice: "", discount: "Pro Setup", stock: "Live Multi-Cam", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
+            { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", rentalPrice: "", discount: "Director's Pick", stock: "4K Cinema", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
         ];
 
         function getProducts() {
@@ -236,21 +235,19 @@
                 const fileInput = document.getElementById('p-image-file');
                 const title = document.getElementById('p-title').value;
                 const price = document.getElementById('p-price').value;
-                const oldPrice = document.getElementById('p-oldprice').value;
+                const rentalPrice = document.getElementById('p-rental').value;
                 const category = document.getElementById('p-category').value;
                 const discount = document.getElementById('p-discount').value || 'New Item';
                 const features = document.getElementById('p-features').value;
 
-                // Handle Image File conversion to Base64
                 if (fileInput.files && fileInput.files[0]) {
                     const reader = new FileReader();
                     reader.onload = function(uploadEvent) {
-                        const base64Image = uploadEvent.target.result;
-                        saveNewProduct(base64Image);
+                        saveNewProduct(uploadEvent.target.result);
                     };
                     reader.readAsDataURL(fileInput.files[0]);
                 } else {
-                    saveNewProduct(''); // No image uploaded, fallback to icon
+                    saveNewProduct('');
                 }
 
                 function saveNewProduct(imageUrl) {
@@ -258,7 +255,7 @@
                         id: Date.now(),
                         title: title,
                         price: price,
-                        oldPrice: oldPrice,
+                        rentalPrice: rentalPrice,
                         category: category,
                         discount: discount,
                         stock: 'In Stock',
@@ -271,7 +268,7 @@
                     saveProducts(products);
                     form.reset();
                     renderAdminList();
-                    alert('Item and image published successfully!');
+                    alert('Item published successfully!');
                 }
             });
         }

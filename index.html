@@ -29,22 +29,38 @@
 
     <div>
         <!-- HEADER -->
-        <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-                <a href="index.html" class="flex items-center space-x-3">
+        <header class="sticky top-0 z-50 bg-darkBg/95 backdrop-blur-md border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+                <a href="index.html" class="flex items-center space-x-3 shrink-0">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-yellow-300 flex items-center justify-center shadow-lg shadow-accent/20">
                         <i class="fa-solid fa-camera-retro text-black text-xl"></i>
                     </div>
-                    <span class="text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-gray-200 to-accent bg-clip-text text-transparent">
+                    <span class="text-xl sm:text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-gray-200 to-accent bg-clip-text text-transparent">
                         Nyirikamera
                     </span>
                 </a>
-                <div class="flex items-center space-x-4">
+
+                <!-- LIVE SEARCH INPUT -->
+                <div class="flex-grow max-w-md hidden md:block">
+                    <div class="relative">
+                        <i class="fa-solid fa-search absolute left-3.5 top-3.5 text-gray-500 text-xs"></i>
+                        <input type="text" id="live-search" placeholder="Search cameras, lenses, gimbals, mics..." class="w-full bg-gray-900 border border-gray-800 rounded-full pl-10 pr-4 py-2 text-xs text-white focus:border-accent outline-none transition-all">
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3 shrink-0">
                     <a href="https://wa.me/250782815825" target="_blank" 
-                       class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl font-semibold text-sm flex items-center space-x-2 transition-all">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                       class="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl font-semibold text-xs flex items-center space-x-1.5 transition-all">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
                         <span>WhatsApp Support</span>
                     </a>
+                </div>
+            </div>
+            <!-- Mobile Search Bar -->
+            <div class="px-4 pb-3 md:hidden">
+                <div class="relative">
+                    <i class="fa-solid fa-search absolute left-3.5 top-3 text-gray-500 text-xs"></i>
+                    <input type="text" id="mobile-search" placeholder="Search cameras, gear..." class="w-full bg-gray-900 border border-gray-800 rounded-full pl-10 pr-4 py-2 text-xs text-white focus:border-accent outline-none">
                 </div>
             </div>
         </header>
@@ -113,15 +129,15 @@
     <!-- EMBEDDED SCRIPT -->
     <script>
         const defaultProducts = [
-            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", oldPrice: "2,500,000 RWF", discount: "-2%", stock: "1 in Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
-            { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", oldPrice: "3,000,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
-            { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", oldPrice: "500,000 RWF", discount: "-2%", stock: "2 in Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
-            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
-            { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", oldPrice: "1,100,000 RWF", discount: "-10%", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
-            { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", oldPrice: "4,100,000 RWF", discount: "-5%", stock: "1 in Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
-            { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", oldPrice: "1,800,000 RWF", discount: "Most Popular", stock: "Full Day Coverage", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
-            { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", oldPrice: "2,500,000 RWF", discount: "Pro Setup", stock: "3 Cameras + Live Feed", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
-            { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", oldPrice: "1,000,000 RWF", discount: "Director's Pick", stock: "4K Cinema Production", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
+            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", rentalPrice: "60,000 RWF / day", discount: "For Rent & Sale", stock: "In Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
+            { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", rentalPrice: "70,000 RWF / day", discount: "Popular Rental", stock: "In Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
+            { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Pro Audio", stock: "In Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
+            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", rentalPrice: "25,000 RWF / day", discount: "Lighting Kit", stock: "In Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
+            { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", rentalPrice: "35,000 RWF / day", discount: "Top Gimbal", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
+            { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", rentalPrice: "", discount: "Editing Suite", stock: "In Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
+            { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", rentalPrice: "", discount: "Most Popular", stock: "Full Day", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
+            { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", rentalPrice: "", discount: "Pro Setup", stock: "Live Multi-Cam", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
+            { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", rentalPrice: "", discount: "Director's Pick", stock: "4K Cinema", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
         ];
 
         function getProducts() {
@@ -133,7 +149,10 @@
             try { return JSON.parse(stored); } catch (e) { return defaultProducts; }
         }
 
-        function renderProducts(category = 'all') {
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function renderProducts() {
             const grid = document.getElementById('product-grid');
             const titleElem = document.getElementById('section-title');
             const sidebarContainer = document.getElementById('sidebar-packages-container');
@@ -143,47 +162,48 @@
             grid.innerHTML = '';
             sidebarContainer.innerHTML = '';
 
-            // 1. Render Sidebar Event Packages
+            // 1. Render Sidebar Packages
             const packages = products.filter(p => p.category.toLowerCase() === 'packages');
-            if (packages.length === 0) {
-                sidebarContainer.innerHTML = `<div class="text-xs text-gray-500 text-center py-2">No packages available.</div>`;
-            } else {
-                packages.forEach(pkg => {
-                    const featureList = pkg.features ? pkg.features.split(',').map(f => `<li class="flex items-center"><i class="fa-solid fa-check text-accent mr-1.5 text-[10px]"></i> ${f.trim()}</li>`).join('') : '';
-                    const card = document.createElement('div');
-                    card.className = "bg-gray-900/80 border border-gray-800 rounded-2xl p-4 hover:border-accent/50 transition-all";
-                    card.innerHTML = `
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <span class="text-[9px] font-bold text-accent uppercase">${pkg.discount || 'Package'}</span>
-                                <h3 class="text-sm font-bold text-white">${pkg.title}</h3>
-                            </div>
-                            <span class="text-xs font-black text-accent">${pkg.price}</span>
+            packages.forEach(pkg => {
+                const featureList = pkg.features ? pkg.features.split(',').map(f => `<li class="flex items-center"><i class="fa-solid fa-check text-accent mr-1.5 text-[10px]"></i> ${f.trim()}</li>`).join('') : '';
+                const card = document.createElement('div');
+                card.className = "bg-gray-900/80 border border-gray-800 rounded-2xl p-4 hover:border-accent/50 transition-all";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="text-[9px] font-bold text-accent uppercase">${pkg.discount || 'Package'}</span>
+                            <h3 class="text-sm font-bold text-white">${pkg.title}</h3>
                         </div>
-                        <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">
-                            ${featureList}
-                        </ul>
-                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20(${encodeURIComponent(pkg.price)})" target="_blank"
-                           class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 rounded-xl flex items-center justify-center space-x-1.5 transition-all">
-                            <i class="fa-brands fa-whatsapp"></i>
-                            <span>Book via WhatsApp</span>
-                        </a>
-                    `;
-                    sidebarContainer.appendChild(card);
-                });
+                        <span class="text-xs font-black text-accent">${pkg.price}</span>
+                    </div>
+                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">${featureList}</ul>
+                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20(${encodeURIComponent(pkg.price)})" target="_blank"
+                       class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 rounded-xl flex items-center justify-center space-x-1.5 transition-all">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Book via WhatsApp</span>
+                    </a>
+                `;
+                sidebarContainer.appendChild(card);
+            });
+
+            // 2. Filter Main Grid by Category & Live Search Query
+            let filtered = products.filter(p => p.category.toLowerCase() !== 'packages');
+
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
             }
 
-            // 2. Render Main Grid (Gear & Equipment)
-            const filtered = (category === 'all' || category === 'All Gear') 
-                ? products.filter(p => p.category.toLowerCase() !== 'packages')
-                : products.filter(p => p.category.toLowerCase() === category.toLowerCase());
+            if (searchQuery.trim() !== '') {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.filter(p => p.title.toLowerCase().includes(q) || (p.features && p.features.toLowerCase().includes(q)));
+            }
 
             if (titleElem) {
-                titleElem.textContent = category === 'all' ? "Featured Equipment" : category.toUpperCase() + " GEAR";
+                titleElem.textContent = searchQuery ? `Search Results for "${searchQuery}"` : (currentCategory === 'all' ? "Featured Equipment" : currentCategory.toUpperCase() + " GEAR");
             }
 
             if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No items found in this category.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No gear found matching your search.</div>`;
                 return;
             }
 
@@ -192,35 +212,51 @@
                 card.className = "bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between hover:border-gray-700 transition-all";
                 
                 let imageHTML = '';
-                // Checks if image is a base64 string or URL
                 if (p.image && (p.image.startsWith('data:image') || p.image.startsWith('http'))) {
                     imageHTML = `<div class="h-44 bg-gray-950 overflow-hidden relative"><img src="${p.image}" class="w-full h-full object-cover"></div>`;
                 } else {
                     imageHTML = `
                         <div class="h-44 bg-gray-950 flex items-center justify-center relative">
-                            <span class="absolute top-2.5 left-2.5 bg-red-500/20 text-red-400 border border-red-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${p.discount || 'New'}</span>
+                            <span class="absolute top-2.5 left-2.5 bg-accent/20 text-accent border border-accent/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${p.discount || 'Available'}</span>
                             <i class="fa-solid ${p.icon || 'fa-camera'} text-gray-700 text-4xl"></i>
                         </div>
                     `;
+                }
+
+                // Pricing layout (Purchase vs Rental)
+                let priceHTML = '';
+                if (p.price && p.rentalPrice) {
+                    priceHTML = `
+                        <div class="space-y-0.5 mb-3">
+                            <div class="flex items-center justify-between text-xs"><span class="text-gray-400">Buy:</span> <span class="font-black text-accent">${p.price}</span></div>
+                            <div class="flex items-center justify-between text-xs"><span class="text-gray-400">Rent:</span> <span class="font-bold text-emerald-400">${p.rentalPrice}</span></div>
+                        </div>
+                    `;
+                } else if (p.rentalPrice) {
+                    priceHTML = `<div class="text-xs mb-3 flex items-center justify-between"><span class="text-gray-400">Rent:</span> <span class="font-bold text-emerald-400">${p.rentalPrice}</span></div>`;
+                } else if (p.price) {
+                    priceHTML = `<div class="text-base font-black text-accent mb-3">${p.price}</div>`;
                 }
 
                 card.innerHTML = `
                     <div>
                         ${imageHTML}
                         <div class="p-4">
-                            <span class="text-[10px] uppercase font-bold text-accent tracking-wider">${p.stock || 'In Stock'}</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">${p.stock || 'In Stock'}</span>
                             <h3 class="text-sm font-bold text-white mt-1 mb-2 line-clamp-2">${p.title}</h3>
-                            <div class="flex items-center space-x-2">
-                                <span class="text-base font-black text-accent">${p.price}</span>
-                                ${p.oldPrice ? `<span class="text-xs text-gray-500 line-through">${p.oldPrice}</span>` : ''}
-                            </div>
+                            ${priceHTML}
                         </div>
                     </div>
-                    <div class="p-4 pt-0">
+                    <div class="p-4 pt-0 grid grid-cols-2 gap-2">
                         <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20buy%20${encodeURIComponent(p.title)}" target="_blank"
-                           class="w-full bg-gray-900 hover:bg-emerald-600 hover:text-white text-gray-300 text-xs font-semibold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition-all border border-gray-800">
-                            <i class="fa-brands fa-whatsapp text-sm"></i>
-                            <span>Whatsapp</span>
+                           class="bg-gray-900 hover:bg-gray-800 text-gray-300 text-[11px] font-semibold py-2 rounded-xl flex items-center justify-center space-x-1 border border-gray-800 transition-all">
+                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
+                            <span>Buy</span>
+                        </a>
+                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20rent%20${encodeURIComponent(p.title)}" target="_blank"
+                           class="bg-emerald-600/20 hover:bg-emerald-600 hover:text-white text-emerald-400 text-[11px] font-semibold py-2 rounded-xl flex items-center justify-center space-x-1 border border-emerald-500/30 transition-all">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Rent</span>
                         </a>
                     </div>
                 `;
@@ -229,6 +265,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Category filter pills
             document.querySelectorAll('.cat-pill').forEach(pill => {
                 pill.addEventListener('click', (e) => {
                     document.querySelectorAll('.cat-pill').forEach(p => {
@@ -238,11 +275,26 @@
                     e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300');
                     e.currentTarget.classList.add('active', 'bg-accent', 'text-black');
                     
-                    renderProducts(e.currentTarget.getAttribute('data-category'));
+                    currentCategory = e.currentTarget.getAttribute('data-category');
+                    renderProducts();
                 });
             });
 
-            renderProducts('all');
+            // Live Search event listeners
+            const searchInput = document.getElementById('live-search');
+            const mobileSearchInput = document.getElementById('mobile-search');
+
+            function handleSearch(e) {
+                searchQuery = e.target.value;
+                if(searchInput) searchInput.value = searchQuery;
+                if(mobileSearchInput) mobileSearchInput.value = searchQuery;
+                renderProducts();
+            }
+
+            if(searchInput) searchInput.addEventListener('input', handleSearch);
+            if(mobileSearchInput) mobileSearchInput.addEventListener('input', handleSearch);
+
+            renderProducts();
         });
     </script>
 </body>

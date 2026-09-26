@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyirikamera — Professional Photography & Videography Gear</title>
+    <title>Nyirikamera — Professional Photography, Videography & Event Packages</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,7 +21,6 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Hide scrollbar for category pills */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -50,28 +49,29 @@
             </div>
         </header>
 
-        <!-- SHOP BY CATEGORY BAR -->
+        <!-- SHOP & SERVICES CATEGORY BAR -->
         <nav class="bg-gray-950 border-b border-gray-800 py-3">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-3 overflow-x-auto no-scrollbar">
-                <button class="cat-pill active whitespace-nowrap bg-accent text-black px-4 py-1.5 rounded-full text-xs font-bold transition-all" data-category="all">All Gear</button>
+                <button class="cat-pill active whitespace-nowrap bg-accent text-black px-4 py-1.5 rounded-full text-xs font-bold transition-all" data-category="all">All Gear & Services</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="photography">Photography</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="videography">Videography</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="audio">Pro Audio</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="lighting">Lighting</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="computer">Computers & Tech</button>
+                <button class="cat-pill whitespace-nowrap bg-cardBg text-accent hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-accent/40 bg-accent/10" data-category="packages">✨ Event Packages</button>
             </div>
         </nav>
 
-        <!-- PRODUCTS GRID SECTION -->
+        <!-- PRODUCTS / PACKAGES GRID SECTION -->
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="flex items-center justify-between mb-8">
-                <h1 class="text-2xl font-black uppercase tracking-wide text-white">Featured Equipment</h1>
+                <h1 id="section-title" class="text-2xl font-black uppercase tracking-wide text-white">Featured Equipment & Production Packages</h1>
                 <button id="open-admin-btn" class="text-xs text-gray-400 hover:text-accent border border-gray-800 px-3 py-1.5 rounded-lg transition-colors">
                     <i class="fa-solid fa-lock mr-1"></i> Admin Panel
                 </button>
             </div>
 
-            <!-- Dynamic Product Grid -->
+            <!-- Dynamic Grid -->
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Populated via script below -->
             </div>
@@ -80,7 +80,7 @@
 
     <!-- FOOTER -->
     <footer class="bg-darkBg border-t border-gray-800 py-10 mt-16 text-center text-sm text-gray-500">
-        <p>© 2026 Nyirikamera E-Commerce. Kigali, Rwanda.</p>
+        <p>© 2026 Nyirikamera E-Commerce & Media Production. Kigali, Rwanda.</p>
     </footer>
 
     <!-- ADMIN MODAL -->
@@ -91,22 +91,23 @@
                 <button id="close-admin-btn" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
             </div>
             <form id="add-product-form" class="space-y-4 mb-6 bg-gray-950 p-4 rounded-2xl border border-gray-800">
-                <h4 class="text-accent font-bold text-xs uppercase">Add New Product</h4>
-                <input type="text" id="p-title" required placeholder="Product Title (e.g. Sony a7 IV)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
+                <h4 class="text-accent font-bold text-xs uppercase">Add New Product or Package</h4>
+                <input type="text" id="p-title" required placeholder="Title (e.g. Platinum Wedding Coverage)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
                 <div class="grid grid-cols-2 gap-3">
-                    <input type="text" id="p-price" required placeholder="Current Price (e.g. 2,400,000 RWF)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
-                    <input type="text" id="p-oldprice" placeholder="Old Price (e.g. 2,500,000 RWF)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
+                    <input type="text" id="p-price" required placeholder="Price (e.g. 1,200,000 RWF)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
+                    <input type="text" id="p-oldprice" placeholder="Old Price / Value (optional)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
                 </div>
                 <div class="grid grid-cols-3 gap-3">
                     <select id="p-category" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
+                        <option value="packages">✨ Event Package</option>
                         <option value="photography">Photography</option>
                         <option value="videography">Videography</option>
                         <option value="audio">Pro Audio</option>
                         <option value="lighting">Lighting</option>
                         <option value="computer">Computer</option>
                     </select>
-                    <input type="text" id="p-discount" placeholder="Discount Tag (-5% new)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
-                    <input type="text" id="p-stock" placeholder="Stock (e.g. 1 in Stock)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
+                    <input type="text" id="p-discount" placeholder="Badge Tag (e.g. Best Seller)" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
+                    <input type="text" id="p-stock" placeholder="Subtitle / Turnaround" class="bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white">
                 </div>
                 <button type="submit" class="w-full bg-accent text-black font-bold py-2.5 rounded-xl text-sm">Save & Publish</button>
             </form>
@@ -114,13 +115,18 @@
         </div>
     </div>
 
-    <!-- EMBEDDED DIRECT SCRIPT -->
+    <!-- EMBEDDED SCRIPT -->
     <script>
         const defaultProducts = [
             { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", oldPrice: "2,500,000 RWF", discount: "-2%", stock: "1 in Stock", icon: "fa-camera" },
             { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", oldPrice: "3,000,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-video" },
             { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", oldPrice: "500,000 RWF", discount: "-2%", stock: "2 in Stock", icon: "fa-microphone" },
-            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt" }
+            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt" },
+            // Event Packages
+            { id: 101, title: "Gold Wedding Production Package", category: "packages", price: "1,500,000 RWF", oldPrice: "1,800,000 RWF", discount: "Most Popular", stock: "Full Day Coverage", icon: "fa-ring" },
+            { id: 102, title: "Concert & Live Stage Multi-Cam Package", category: "packages", price: "2,200,000 RWF", oldPrice: "2,500,000 RWF", discount: "Pro Setup", stock: "3 Cameras + Live Feed", icon: "fa-sliders" },
+            { id: 103, title: "Music Video Shoot & Cinematic Edit", category: "packages", price: "850,000 RWF", oldPrice: "1,000,000 RWF", discount: "Director's Pick", stock: "4K Cinema Production", icon: "fa-film" },
+            { id: 104, title: "Corporate Event & Seminar Package", category: "packages", price: "600,000 RWF", oldPrice: "750,000 RWF", discount: "Standard", stock: "Photo + Highlight Video", icon: "fa-briefcase" }
         ];
 
         function getProducts() {
@@ -143,6 +149,7 @@
 
         function renderProducts(category = 'all') {
             const grid = document.getElementById('product-grid');
+            const titleElem = document.getElementById('section-title');
             if (!grid) return;
 
             const products = getProducts();
@@ -152,8 +159,18 @@
                 ? products 
                 : products.filter(p => p.category.toLowerCase() === category.toLowerCase());
 
+            if (titleElem) {
+                if (category === 'packages') {
+                    titleElem.textContent = "Professional Event & Production Packages";
+                } else if (category === 'all') {
+                    titleElem.textContent = "Featured Equipment & Production Packages";
+                } else {
+                    titleElem.textContent = category.toUpperCase() + " GEAR & SERVICES";
+                }
+            }
+
             if (filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No items found in this category. Click 'Admin Panel' above to add gear!</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No items found in this category. Click 'Admin Panel' above to add packages!</div>`;
                 return;
             }
 
@@ -163,11 +180,11 @@
                 card.innerHTML = `
                     <a href="product.html?id=${p.id}" class="block">
                         <div class="h-48 bg-gray-950 flex items-center justify-center relative">
-                            <span class="absolute top-2.5 left-2.5 bg-red-500/20 text-red-400 border border-red-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${p.discount || 'New'}</span>
+                            <span class="absolute top-2.5 left-2.5 bg-accent/20 text-accent border border-accent/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${p.discount || 'Package'}</span>
                             <i class="fa-solid ${p.icon || 'fa-camera'} text-gray-700 text-5xl"></i>
                         </div>
                         <div class="p-4">
-                            <span class="text-[10px] uppercase font-bold text-accent tracking-wider">${p.stock || 'In Stock'}</span>
+                            <span class="text-[10px] uppercase font-bold text-accent tracking-wider">${p.stock || 'Available'}</span>
                             <h3 class="text-sm font-bold text-white mt-1 mb-2 line-clamp-2 hover:text-accent transition-colors">${p.title}</h3>
                             <div class="flex items-center space-x-2">
                                 <span class="text-base font-black text-accent">${p.price}</span>
@@ -176,10 +193,10 @@
                         </div>
                     </a>
                     <div class="p-4 pt-0">
-                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20buy%20${encodeURIComponent(p.title)}" target="_blank"
-                           class="w-full bg-gray-900 hover:bg-emerald-600 hover:text-white text-gray-300 text-xs font-semibold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition-all border border-gray-800">
+                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20book%20or%20inquire%20about%20${encodeURIComponent(p.title)}" target="_blank"
+                           class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2.5 rounded-xl flex items-center justify-center space-x-1.5 transition-all shadow-lg">
                             <i class="fa-brands fa-whatsapp text-sm"></i>
-                            <span>Whatsapp</span>
+                            <span>Book via Whatsapp</span>
                         </a>
                     </div>
                 `;
@@ -202,7 +219,7 @@
                 const row = document.createElement('div');
                 row.className = 'flex items-center justify-between bg-gray-900 p-2.5 rounded-xl border border-gray-800 text-xs';
                 row.innerHTML = `
-                    <span class="text-white font-medium">${p.title}</span>
+                    <span class="text-white font-medium">${p.title} (${p.category})</span>
                     <button data-id="${p.id}" class="del-btn bg-red-600/20 text-red-400 px-2 py-1 rounded-lg hover:bg-red-600 hover:text-white transition-colors">Delete</button>
                 `;
                 list.appendChild(row);
@@ -225,14 +242,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Category filter pills click handler
             document.querySelectorAll('.cat-pill').forEach(pill => {
                 pill.addEventListener('click', (e) => {
                     document.querySelectorAll('.cat-pill').forEach(p => {
-                        p.classList.remove('active', 'bg-accent', 'text-black');
+                        p.classList.remove('active', 'bg-accent', 'text-black', 'bg-accent/10');
                         p.classList.add('bg-cardBg', 'text-gray-300');
                     });
-                    e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300');
+                    e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300', 'bg-accent/10');
                     e.currentTarget.classList.add('active', 'bg-accent', 'text-black');
                     
                     const cat = e.currentTarget.getAttribute('data-category');
@@ -240,7 +256,6 @@
                 });
             });
 
-            // Admin modal triggers
             const modal = document.getElementById('admin-modal');
             const openBtn = document.getElementById('open-admin-btn');
             const closeBtn = document.getElementById('close-admin-btn');
@@ -248,7 +263,6 @@
             if (openBtn) openBtn.addEventListener('click', () => { modal.classList.remove('hidden'); renderAdminList(); });
             if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
 
-            // Form submission
             const form = document.getElementById('add-product-form');
             if (form) {
                 form.addEventListener('submit', (e) => {
@@ -259,9 +273,9 @@
                         price: document.getElementById('p-price').value,
                         oldPrice: document.getElementById('p-oldprice').value,
                         category: document.getElementById('p-category').value,
-                        discount: document.getElementById('p-discount').value || '-2% new',
-                        stock: document.getElementById('p-stock').value || '1 in Stock',
-                        icon: 'fa-camera'
+                        discount: document.getElementById('p-discount').value || 'Custom Package',
+                        stock: document.getElementById('p-stock').value || 'Professional Setup',
+                        icon: 'fa-ring'
                     };
                     const products = getProducts();
                     products.unshift(newP);
@@ -269,7 +283,7 @@
                     form.reset();
                     renderProducts(getCurrentCategory());
                     renderAdminList();
-                    alert('Item published successfully!');
+                    alert('Package published successfully!');
                 });
             }
 

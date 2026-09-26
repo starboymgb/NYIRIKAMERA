@@ -1,306 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyirikamera | Pro Gear, Cameras & Studio Equipment in Kigali</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Nyirikamera — Professional Photography, Videography & Event Packages</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131c2e',
+                        accent: '#f59e0b',
+                        accentHover: '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta+Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+<body class="bg-darkBg text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center shadow-lg shadow-orange-600/30">
-                    <i class="fa-solid fa-camera-retro text-white text-lg"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-extrabold tracking-tight text-white">NYIRIKAMERA</span>
-                    <span class="block text-xs text-orange-500 font-semibold tracking-widest uppercase">Kigali, Rwanda</span>
-                </div>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="admin.html" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-sm font-medium hover:bg-slate-800 transition">
-                    <i class="fa-solid fa-gauge text-orange-500"></i>
-                    <span>Admin Panel</span>
+    <div>
+        <!-- HEADER -->
+        <header class="sticky top-0 z-50 bg-darkBg/95 backdrop-blur-md border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+                <a href="index.html" class="flex items-center space-x-3 shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-yellow-300 flex items-center justify-center shadow-lg shadow-accent/20">
+                        <i class="fa-solid fa-camera-retro text-black text-xl"></i>
+                    </div>
+                    <span class="text-xl sm:text-2xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-gray-200 to-accent bg-clip-text text-transparent">
+                        Nyirikamera
+                    </span>
                 </a>
-                <button onclick="openCart()" class="relative p-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 transition text-white shadow-lg shadow-orange-600/20">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-white text-orange-600 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-950">0</span>
-                </button>
+
+                <!-- LIVE SEARCH INPUT -->
+                <div class="flex-grow max-w-md hidden md:block">
+                    <div class="relative">
+                        <i class="fa-solid fa-search absolute left-3.5 top-3.5 text-gray-500 text-xs"></i>
+                        <input type="text" id="live-search" placeholder="Search cameras, lenses, gimbals, mics..." class="w-full bg-gray-900 border border-gray-800 rounded-full pl-10 pr-4 py-2 text-xs text-white focus:border-accent outline-none transition-all">
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3 shrink-0">
+                    <a href="https://wa.me/250782815825" target="_blank" 
+                       class="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl font-semibold text-xs flex items-center space-x-1.5 transition-all">
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        <span>WhatsApp Support</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative py-16 lg:py-24 overflow-hidden border-b border-slate-900 bg-gradient-to-b from-slate-900/50 to-slate-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-6">
-                <i class="fa-solid fa-bolt text-orange-500"></i>
-                <span>Direct Purchase & Rental Inventory</span>
-            </span>
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight max-w-3xl mx-auto leading-tight">
-                Professional Gear for <span class="text-orange-500">Kigali Creators</span>
-            </h1>
-            <p class="mt-4 text-base sm:text-lg text-slate-400 max-w-xl mx-auto">
-                Explore our full catalog of high-end cinema cameras, lenses, multi-channel wireless audio, and studio lighting equipment.
-            </p>
-
-            <!-- Search & Filters -->
-            <div class="mt-10 max-w-2xl mx-auto">
+            <!-- Mobile Search Bar -->
+            <div class="px-4 pb-3 md:hidden">
                 <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
-                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="Search cameras, lenses, gimbals, mics..." class="w-full bg-slate-900 border border-slate-800 rounded-2xl py-4 pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 transition shadow-inner">
+                    <i class="fa-solid fa-search absolute left-3.5 top-3 text-gray-500 text-xs"></i>
+                    <input type="text" id="mobile-search" placeholder="Search cameras, gear..." class="w-full bg-gray-900 border border-gray-800 rounded-full pl-10 pr-4 py-2 text-xs text-white focus:border-accent outline-none">
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Category Filter Tabs -->
-    <div class="sticky top-20 z-40 bg-slate-950/90 backdrop-blur border-b border-slate-900 py-4">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-2 overflow-x-auto no-scrollbar">
-            <button onclick="setCategory('all')" class="category-btn active px-5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-orange-600 text-white transition shadow-sm">All Gear</button>
-            <button onclick="setCategory('photography')" class="category-btn px-5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Photography</button>
-            <button onclick="setCategory('videography')" class="category-btn px-5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Videography</button>
-            <button onclick="setCategory('audio')" class="category-btn px-5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Pro Audio</button>
-            <button onclick="setCategory('lighting')" class="category-btn px-5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Lighting</button>
-            <button onclick="setCategory('computer')" class="category-btn px-5 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition">Computers & Tech</button>
-        </div>
+        <!-- GEAR CATEGORY BAR -->
+        <nav class="bg-gray-950 border-b border-gray-800 py-3">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-3 overflow-x-auto no-scrollbar">
+                <button class="cat-pill active whitespace-nowrap bg-accent text-black px-4 py-1.5 rounded-full text-xs font-bold transition-all" data-category="all">All Gear</button>
+                <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="photography">Photography</button>
+                <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="videography">Videography</button>
+                <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="audio">Pro Audio</button>
+                <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="lighting">Lighting</button>
+                <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="computer">Computers & Tech</button>
+            </div>
+        </nav>
+
+        <!-- MAIN LAYOUT: STORE (LEFT) & EVENT PACKAGES SIDEBAR (RIGHT) -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                
+                <!-- LEFT 3 COLUMNS: EQUIPMENT & SHOP GRID -->
+                <div class="lg:col-span-3">
+                    <div class="flex items-center justify-between mb-6">
+                        <h1 id="section-title" class="text-xl font-black uppercase tracking-wide text-white">Featured Equipment</h1>
+                        <span class="text-xs text-gray-500">Kigali, Rwanda</span>
+                    </div>
+
+                    <!-- Dynamic Product Grid -->
+                    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <!-- Populated via script -->
+                    </div>
+                </div>
+
+                <!-- RIGHT 1 COLUMN: EVENT PACKAGES SIDEBAR -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-gradient-to-b from-cardBg to-gray-950 border border-accent/30 rounded-3xl p-5 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-accent text-black font-black text-[9px] uppercase px-3 py-1 rounded-bl-xl tracking-wider">
+                            Pro Services
+                        </div>
+                        
+                        <div class="flex items-center space-x-2.5 mb-4">
+                            <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
+                                <i class="fa-solid fa-crown text-sm"></i>
+                            </div>
+                            <h2 class="text-base font-black uppercase tracking-wide text-white">Event Packages</h2>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-5">Professional multi-cam coverage, cinema grade edits, and full crew setups for your events in Rwanda.</p>
+
+                        <!-- Dynamic Sidebar Event Packages Container -->
+                        <div id="sidebar-packages-container" class="space-y-4">
+                            <!-- Populated via script -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
     </div>
 
-    <!-- Product Grid -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- Dynamically populated -->
-        </div>
-        <div id="no-results" class="hidden text-center py-20">
-            <i class="fa-solid fa-box-open text-5xl text-slate-700 mb-4"></i>
-            <h3 class="text-lg font-semibold text-slate-300">No equipment found</h3>
-            <p class="text-sm text-slate-500 mt-1">Try searching for a different item name or category.</p>
-        </div>
-    </main>
-
-    <!-- Cart Slide-over / Modal -->
-    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex justify-end">
-        <div class="bg-slate-900 w-full max-w-md h-full flex flex-col border-l border-slate-800 shadow-2xl">
-            <div class="p-6 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-bag-shopping text-orange-500"></i>
-                    <h2 class="text-lg font-bold text-white">Your Selected Order</h2>
-                </div>
-                <button onclick="closeCart()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
-            </div>
-            <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-4">
-                <!-- Cart contents -->
-            </div>
-            <div class="p-6 border-t border-slate-800 bg-slate-950">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="text-slate-400 text-sm">Total Estimate:</span>
-                    <span id="cart-total" class="text-xl font-extrabold text-orange-500">0 RWF</span>
-                </div>
-                <button onclick="checkoutWhatsApp()" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white flex items-center justify-center space-x-2 transition shadow-lg shadow-emerald-600/20">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                    <span>Order via WhatsApp</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-10 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Nyirikamera. All rights reserved. Kigali, Rwanda.</p>
+    <!-- FOOTER -->
+    <footer class="bg-darkBg border-t border-gray-800 py-10 mt-16 text-center text-sm text-gray-500">
+        <p>© 2026 Nyirikamera E-Commerce & Media Production. Kigali, Rwanda.</p>
+        <p class="text-[11px] text-gray-600 mt-2"><a href="admin.html" class="hover:text-accent">Admin Portal</a></p>
     </footer>
 
-    <!-- Script to load 50 Items and Handle Cart -->
+    <!-- EMBEDDED SCRIPT -->
     <script>
-        const starter50Stock = [
-            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", rentalPrice: "60,000 RWF / day", discount: "Best Seller", stock: "In Stock", icon: "fa-camera", features: "Full-frame 33MP, 4K 60p, In-body stabilization" },
-            { id: 2, title: "Canon EOS R6 Mark II", category: "photography", price: "2,650,000 RWF", rentalPrice: "65,000 RWF / day", discount: "Pro Choice", stock: "In Stock", icon: "fa-camera", features: "24.2MP, 40fps electronic shutter, 4K 60p oversampled" },
-            { id: 3, title: "Sony FE 24-70mm f/2.8 GM II Lens", category: "photography", price: "2,100,000 RWF", rentalPrice: "45,000 RWF / day", discount: "Top Lens", stock: "In Stock", icon: "fa-camera-retro", features: "G Master series, Constant f/2.8, Lightweight design" },
-            { id: 4, title: "Sony FE 70-200mm f/2.8 GM OSS II", category: "photography", price: "2,700,000 RWF", rentalPrice: "55,000 RWF / day", discount: "Telephoto", stock: "In Stock", icon: "fa-camera-retro", features: "Stunning bokeh, Fast autofocus, Optical stabilization" },
-            { id: 5, title: "Canon RF 50mm f/1.2L USM", category: "photography", price: "2,250,000 RWF", rentalPrice: "40,000 RWF / day", discount: "Portrait", stock: "In Stock", icon: "fa-camera-retro", features: "Ultra-fast prime, Beautiful background blur, Weather-sealed" },
-            { id: 6, title: "Fujifilm X-T5 Mirrorless Body", category: "photography", price: "1,750,000 RWF", rentalPrice: "45,000 RWF / day", discount: "Retro Style", stock: "In Stock", icon: "fa-camera", features: "40MP APS-C X-Trans 5 HR, 7-stop IBIS, 6.2K video" },
-            { id: 7, title: "Nikon Z8 Mirrorless Camera", category: "photography", price: "3,500,000 RWF", rentalPrice: "85,000 RWF / day", discount: "Flagship", stock: "In Stock", icon: "fa-camera", features: "45.7MP stacked CMOS, 8K video, Zero blackout viewfinder" },
-            { id: 8, title: "Sony 50mm f/1.2 GM Lens", category: "photography", price: "1,950,000 RWF", rentalPrice: "40,000 RWF / day", discount: "Sharp", stock: "In Stock", icon: "fa-camera-retro", features: "Extreme sharpness, Dual XD Linear motors, Compact build" },
-            { id: 9, title: "Sigma 35mm f/1.4 DG DN Art (Sony E)", category: "photography", price: "850,000 RWF", rentalPrice: "20,000 RWF / day", discount: "Art Series", stock: "In Stock", icon: "fa-camera-retro", features: "Stunning optical performance, Fast aperture, Stepping motor" },
-            { id: 10, title: "Tamron 28-75mm f/2.8 Di III VXD G2", category: "photography", price: "920,000 RWF", rentalPrice: "25,000 RWF / day", discount: "Value Pick", stock: "In Stock", icon: "fa-camera-retro", features: "Lightweight, Fast autofocus, Excellent close-up capability" },
-            { id: 11, title: "Godox V1 Flash for Sony/Canon", category: "photography", price: "280,000 RWF", rentalPrice: "10,000 RWF / day", discount: "Speedlite", stock: "In Stock", icon: "fa-bolt", features: "Round head design, Li-ion battery, TTL compatible" },
-            { id: 12, title: "SanDisk Extreme PRO 128GB SDXC", category: "photography", price: "65,000 RWF", rentalPrice: "", discount: "Media", stock: "In Stock", icon: "fa-sd-card", features: "Up to 200MB/s read, 90MB/s write, 4K UHD ready" },
-            { id: 13, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", rentalPrice: "70,000 RWF / day", discount: "Popular Rental", stock: "In Stock", icon: "fa-video", features: "Super 35 4K, Dual base ISO, S-Log3" },
-            { id: 14, title: "Sony FX3 Full-Frame Cinema Line", category: "videography", price: "4,200,000 RWF", rentalPrice: "110,000 RWF / day", discount: "Pro Cinema", stock: "In Stock", icon: "fa-video", features: "Full-frame 12.1MP, Active cooling fan, XLR handle included" },
-            { id: 15, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", rentalPrice: "35,000 RWF / day", discount: "Top Stabilizer", stock: "In Stock", icon: "fa-video", features: "Carbon fiber, LiDAR focus ready, 4.5kg payload" },
-            { id: 16, title: "DJI Ronin RS 4 Combo", category: "videography", price: "1,150,000 RWF", rentalPrice: "40,000 RWF / day", discount: "New Release", stock: "In Stock", icon: "fa-video", features: "2nd-gen native vertical shooting, Teflon-coated axes" },
-            { id: 17, title: "Atomos Ninja V+ 5\" 8K HDR Monitor", category: "videography", price: "980,000 RWF", rentalPrice: "30,000 RWF / day", discount: "External Recorder", stock: "In Stock", icon: "fa-desktop", features: "1000 nits brightness, ProRes RAW recording, 5-inch touch display" },
-            { id: 18, title: "DJI Mini 4 Pro Drone (RC 2)", category: "videography", price: "1,450,000 RWF", rentalPrice: "50,000 RWF / day", discount: "Aerial Cam", stock: "In Stock", icon: "fa-plane", features: "Omnidirectional obstacle sensing, 4K/60fps HDR, 34-min battery" },
-            { id: 19, title: "DJI Mavic 3 Pro (Fly More Combo)", category: "videography", price: "3,200,000 RWF", rentalPrice: "90,000 RWF / day", discount: "Triple Camera", stock: "In Stock", icon: "fa-plane", features: "Hasselblad main camera, 70mm and 166mm telephoto lenses" },
-            { id: 20, title: "SmallRig Camera Cage for Sony FX3/FX30", category: "videography", price: "85,000 RWF", rentalPrice: "", discount: "Rigging", stock: "In Stock", icon: "fa-cube", features: "Form-fitting, Multiple 1/4\"-20 threads, NATO rail" },
-            { id: 21, title: "Manfrotto MVH500AH Fluid Video Head", category: "videography", price: "260,000 RWF", rentalPrice: "10,000 RWF / day", discount: "Tripod Gear", stock: "In Stock", icon: "fa-sliders", features: "Professional fluid drag system, Flat base mount" },
-            { id: 22, title: "K&F Concept Variable ND Filter 82mm", category: "videography", price: "45,000 RWF", rentalPrice: "", discount: "Lens Filter", stock: "In Stock", icon: "fa-circle", features: "ND2 to ND32 adjustable, Multi-coated optical glass" },
-            { id: 23, title: "Zhiyun Crane M3 Handheld Gimbal", category: "videography", price: "380,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Compact", stock: "In Stock", icon: "fa-video", features: "Compact for mirrorless & smartphones, Built-in fill light" },
-            { id: 24, title: "Feelworld F6 Plus 6\" 4K Touch Monitor", category: "videography", price: "220,000 RWF", rentalPrice: "10,000 RWF / day", discount: "Monitor", stock: "In Stock", icon: "fa-desktop", features: "3D LUT support, 1920x1080 resolution, 4K HDMI loop-out" },
-            { id: 25, title: "Tilta Nucleus-Nano Wireless Lens Control", category: "videography", price: "340,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Follow Focus", stock: "In Stock", icon: "fa-sliders", features: "Wireless focus motor, 0.8 mod gear, Handwheel controller" },
-            { id: 26, title: "Blackmagic Pocket Cinema Camera 6K G2", category: "videography", price: "2,800,000 RWF", rentalPrice: "80,000 RWF / day", discount: "Cinema", stock: "In Stock", icon: "fa-video", features: "Super 35 sensor, EF mount, Adjustable LCD touchscreen" },
-            { id: 27, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Pro Audio", stock: "In Stock", icon: "fa-microphone", features: "Cardioid dynamic, Electromagnetic shield, Warm tone" },
-            { id: 28, title: "DJI Mic 2 (2 TX + 1 RX + Charging Case)", category: "audio", price: "430,000 RWF", rentalPrice: "20,000 RWF / day", discount: "Wireless", stock: "In Stock", icon: "fa-microphone-lines", features: "32-bit float internal recording, Crystal clear wireless" },
-            { id: 29, title: "Røde Wireless PRO Dual Mic System", category: "audio", price: "480,000 RWF", rentalPrice: "22,000 RWF / day", discount: "Top Pick", stock: "In Stock", icon: "fa-microphone-lines", features: "Dual-channel, 32-bit float onboard backup recording" },
-            { id: 30, title: "Røde VideoMic Pro+", category: "audio", price: "260,000 RWF", rentalPrice: "12,000 RWF / day", discount: "Shotgun", stock: "In Stock", icon: "fa-microphone", features: "Automatic power function, Built-in rechargeable battery" },
-            { id: 31, title: "Sennheiser EW 100 G4 Wireless Lav System", category: "audio", price: "750,000 RWF", rentalPrice: "30,000 RWF / day", discount: "Broadcast", stock: "In Stock", icon: "fa-microphone", features: "Rugged all-in-one wireless system for speech and interview" },
-            { id: 32, title: "Zoom H6 Handy Portable Recorder", category: "audio", price: "390,000 RWF", rentalPrice: "18,000 RWF / day", discount: "Recorder", stock: "In Stock", icon: "fa-sliders", features: "Interchangeable input capsules, 6-track simultaneous recording" },
-            { id: 33, title: "Audio-Technica ATH-M50x Studio Headphones", category: "audio", price: "190,000 RWF", rentalPrice: "8,000 RWF / day", discount: "Headphones", stock: "In Stock", icon: "fa-headphones", features: "Critically acclaimed sonic performance, Pro-grade ear pads" },
-            { id: 34, title: "HyperX QuadCast S USB Microphone", category: "audio", price: "180,000 RWF", rentalPrice: "", discount: "Streaming", stock: "In Stock", icon: "fa-microphone", features: "Anti-vibration shock mount, RGB lighting, 4 polar patterns" },
-            { id: 35, title: "Røde PodMic Dynamic Podcasting Mic", category: "audio", price: "140,000 RWF", rentalPrice: "7,000 RWF / day", discount: "Podcasting", stock: "In Stock", icon: "fa-microphone", features: "Broadcast-quality dynamic capsule, Internal pop filter" },
-            { id: 36, title: "Focusrite Scarlett 2i2 (4th Gen) Audio Interface", category: "audio", price: "240,000 RWF", rentalPrice: "10,000 RWF / day", discount: "Interface", stock: "In Stock", icon: "fa-sliders", features: "Studio-quality preamps, Auto Gain, Air Mode" },
-            { id: 37, title: "Sony MDR-7506 Professional Headphones", category: "audio", price: "130,000 RWF", rentalPrice: "6,000 RWF / day", discount: "Monitoring", stock: "In Stock", icon: "fa-headphones", features: "Industry standard for monitoring, Lightweight and folding" },
-            { id: 38, title: "Deity V-Mic D3 Pro Shotgun Microphone", category: "audio", price: "220,000 RWF", rentalPrice: "10,000 RWF / day", discount: "Audio", stock: "In Stock", icon: "fa-microphone", features: "Stepless analog gain dial, Micro-USB rechargeable battery" },
-            { id: 39, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", rentalPrice: "25,000 RWF / day", discount: "Lighting Kit", stock: "In Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
-            { id: 40, title: "Aputure Amaran 200d LED Video Light", category: "lighting", price: "420,000 RWF", rentalPrice: "20,000 RWF / day", discount: "Studio Light", stock: "In Stock", icon: "fa-lightbulb", features: "200W Daylight LED, Sidus Link app control, Ultra-bright" },
-            { id: 41, title: "Aputure Amaran 150c RGB LED Light", category: "lighting", price: "550,000 RWF", rentalPrice: "25,000 RWF / day", discount: "RGB Color", stock: "In Stock", icon: "fa-lightbulb", features: "Full-color RGBWW point-source light, Bowens mount versatility" },
-            { id: 42, title: "Godox SL60W LED Video Light", category: "lighting", price: "210,000 RWF", rentalPrice: "10,000 RWF / day", discount: "Budget Hit", stock: "In Stock", icon: "fa-lightbulb", features: "60W constant output, Excellent color rendering index" },
-            { id: 43, title: "Aputure Light Dome II Softbox", category: "lighting", price: "250,000 RWF", rentalPrice: "12,000 RWF / day", discount: "Modifier", stock: "In Stock", icon: "fa-circle", features: "34.8\" parabolic softbox, Creates gorgeous soft cinematic light" },
-            { id: 44, title: "Nanlite Pavotube II 30C RGBWW LED Tubes (2-Kit)", category: "lighting", price: "850,000 RWF", rentalPrice: "35,000 RWF / day", discount: "Effects", stock: "In Stock", icon: "fa-wand-magic-sparkles", features: "Pixel effects, Wide CCT range, Tube lights for music videos" },
-            { id: 45, title: "Godox TL60 RGB Tube Light", category: "lighting", price: "320,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Tube Light", stock: "In Stock", icon: "fa-wand-magic-sparkles", features: "Multi-control methods, Built-in battery, Vivid colors" },
-            { id: 46, title: "MacBook Pro 16\" M3 Max (36GB RAM)", category: "computer", price: "3,800,000 RWF", rentalPrice: "", discount: "Editing Suite", stock: "In Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
-            { id: 47, title: "MacBook Pro 14\" M3 Pro", category: "computer", price: "2,700,000 RWF", rentalPrice: "", discount: "Creator Laptop", stock: "In Stock", icon: "fa-laptop", features: "M3 Pro chip, 18GB RAM, 512GB SSD, Space Black" },
-            { id: 48, title: "Dell UltraSharp 27\" 4K USB-C Monitor", category: "computer", price: "680,000 RWF", rentalPrice: "", discount: "Color Grading", stock: "In Stock", icon: "fa-desktop", features: "IPS Black technology, 4K resolution, 98% DPCI-P3 color" },
-            { id: 49, title: "Samsung T7 Shield 2TB Portable SSD", category: "computer", price: "230,000 RWF", rentalPrice: "", discount: "Storage", stock: "In Stock", icon: "fa-hard-drive", features: "Rugged, IP65 water and dust resistance, Up to 1050 MB/s" },
-            { id: 50, title: "Lacie Rugged Mini 4TB External HDD", category: "computer", price: "210,000 RWF", rentalPrice: "", discount: "Archive", stock: "In Stock", icon: "fa-hard-drive", features: "Drop resistant, Shock resistant, USB 3.0 high capacity" }
+        const defaultProducts = [
+            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", rentalPrice: "60,000 RWF / day", discount: "For Rent & Sale", stock: "In Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
+            { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", rentalPrice: "70,000 RWF / day", discount: "Popular Rental", stock: "In Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
+            { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", rentalPrice: "15,000 RWF / day", discount: "Pro Audio", stock: "In Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
+            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", rentalPrice: "25,000 RWF / day", discount: "Lighting Kit", stock: "In Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
+            { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", rentalPrice: "35,000 RWF / day", discount: "Top Gimbal", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
+            { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", rentalPrice: "", discount: "Editing Suite", stock: "In Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
+            { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", rentalPrice: "", discount: "Most Popular", stock: "Full Day", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
+            { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", rentalPrice: "", discount: "Pro Setup", stock: "Live Multi-Cam", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
+            { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", rentalPrice: "", discount: "Director's Pick", stock: "4K Cinema", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
         ];
 
-        let products = JSON.parse(localStorage.getItem('nyirikamera_products')) || starter50Stock;
+        function getProducts() {
+            const stored = localStorage.getItem('nyirikamera_products');
+            if (!stored || stored === "[]") {
+                localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
+                return defaultProducts;
+            }
+            try { return JSON.parse(stored); } catch (e) { return defaultProducts; }
+        }
+
         let currentCategory = 'all';
-        let cart = [];
+        let searchQuery = '';
 
         function renderProducts() {
             const grid = document.getElementById('product-grid');
-            const searchVal = document.getElementById('search-input').value.toLowerCase();
-            const noResults = document.getElementById('no-results');
-            grid.innerHTML = '';
+            const titleElem = document.getElementById('section-title');
+            const sidebarContainer = document.getElementById('sidebar-packages-container');
+            if (!grid || !sidebarContainer) return;
 
-            const filtered = products.filter(p => {
-                const matchesCat = currentCategory === 'all' || p.category === currentCategory;
-                const matchesSearch = p.title.toLowerCase().includes(searchVal) || p.features.toLowerCase().includes(searchVal);
-                return matchesCat && matchesSearch;
+            const products = getProducts();
+            grid.innerHTML = '';
+            sidebarContainer.innerHTML = '';
+
+            // 1. Render Sidebar Packages
+            const packages = products.filter(p => p.category.toLowerCase() === 'packages');
+            packages.forEach(pkg => {
+                const featureList = pkg.features ? pkg.features.split(',').map(f => `<li class="flex items-center"><i class="fa-solid fa-check text-accent mr-1.5 text-[10px]"></i> ${f.trim()}</li>`).join('') : '';
+                const card = document.createElement('div');
+                card.className = "bg-gray-900/80 border border-gray-800 rounded-2xl p-4 hover:border-accent/50 transition-all";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="text-[9px] font-bold text-accent uppercase">${pkg.discount || 'Package'}</span>
+                            <h3 class="text-sm font-bold text-white">${pkg.title}</h3>
+                        </div>
+                        <span class="text-xs font-black text-accent">${pkg.price}</span>
+                    </div>
+                    <ul class="text-[11px] text-gray-300 space-y-1.5 mb-4">${featureList}</ul>
+                    <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20(${encodeURIComponent(pkg.price)})" target="_blank"
+                       class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 rounded-xl flex items-center justify-center space-x-1.5 transition-all">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Book via WhatsApp</span>
+                    </a>
+                `;
+                sidebarContainer.appendChild(card);
             });
 
+            // 2. Filter Main Grid by Category & Live Search Query
+            let filtered = products.filter(p => p.category.toLowerCase() !== 'packages');
+
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
+            }
+
+            if (searchQuery.trim() !== '') {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.filter(p => p.title.toLowerCase().includes(q) || (p.features && p.features.toLowerCase().includes(q)));
+            }
+
+            if (titleElem) {
+                titleElem.textContent = searchQuery ? `Search Results for "${searchQuery}"` : (currentCategory === 'all' ? "Featured Equipment" : currentCategory.toUpperCase() + " GEAR");
+            }
+
             if (filtered.length === 0) {
-                noResults.classList.remove('hidden');
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No gear found matching your search.</div>`;
                 return;
-            } else {
-                noResults.classList.add('hidden');
             }
 
             filtered.forEach(p => {
-                grid.innerHTML += `
-                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-orange-500/50 transition group">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-bold uppercase tracking-wider">${p.discount || p.category}</span>
-                                <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-orange-400 group-hover:bg-orange-600 group-hover:text-white transition">
-                                    <i class="fa-solid ${p.icon || 'fa-camera'}"></i>
-                                </div>
-                            </div>
-                            <h3 class="text-base font-bold text-white mb-2 leading-snug">${p.title}</h3>
-                            <p class="text-xs text-slate-400 mb-4 line-clamp-2">${p.features}</p>
+                const card = document.createElement('div');
+                card.className = "bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between hover:border-gray-700 transition-all";
+                
+                let imageHTML = '';
+                if (p.image && (p.image.startsWith('data:image') || p.image.startsWith('http'))) {
+                    imageHTML = `<div class="h-44 bg-gray-950 overflow-hidden relative"><img src="${p.image}" class="w-full h-full object-cover"></div>`;
+                } else {
+                    imageHTML = `
+                        <div class="h-44 bg-gray-950 flex items-center justify-center relative">
+                            <span class="absolute top-2.5 left-2.5 bg-accent/20 text-accent border border-accent/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${p.discount || 'Available'}</span>
+                            <i class="fa-solid ${p.icon || 'fa-camera'} text-gray-700 text-4xl"></i>
                         </div>
-                        <div>
-                            <div class="mb-4 pt-4 border-t border-slate-800/80">
-                                <div class="text-xs text-slate-500 font-medium">Purchase Price</div>
-                                <div class="text-lg font-extrabold text-white">${p.price}</div>
-                                ${p.rentalPrice ? `<div class="text-xs text-orange-400 mt-1 font-semibold"><i class="fa-solid fa-clock-rotate-left mr-1"></i> Rental: ${p.rentalPrice}</div>` : ''}
-                            </div>
-                            <button onclick="addToCart(${p.id})" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-orange-600 text-white font-semibold text-sm transition flex items-center justify-center space-x-2">
-                                <i class="fa-solid fa-plus text-xs"></i>
-                                <span>Add to Order</span>
-                            </button>
+                    `;
+                }
+
+                // Pricing layout (Purchase vs Rental)
+                let priceHTML = '';
+                if (p.price && p.rentalPrice) {
+                    priceHTML = `
+                        <div class="space-y-0.5 mb-3">
+                            <div class="flex items-center justify-between text-xs"><span class="text-gray-400">Buy:</span> <span class="font-black text-accent">${p.price}</span></div>
+                            <div class="flex items-center justify-between text-xs"><span class="text-gray-400">Rent:</span> <span class="font-bold text-emerald-400">${p.rentalPrice}</span></div>
+                        </div>
+                    `;
+                } else if (p.rentalPrice) {
+                    priceHTML = `<div class="text-xs mb-3 flex items-center justify-between"><span class="text-gray-400">Rent:</span> <span class="font-bold text-emerald-400">${p.rentalPrice}</span></div>`;
+                } else if (p.price) {
+                    priceHTML = `<div class="text-base font-black text-accent mb-3">${p.price}</div>`;
+                }
+
+                card.innerHTML = `
+                    <div>
+                        ${imageHTML}
+                        <div class="p-4">
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">${p.stock || 'In Stock'}</span>
+                            <h3 class="text-sm font-bold text-white mt-1 mb-2 line-clamp-2">${p.title}</h3>
+                            ${priceHTML}
                         </div>
                     </div>
+                    <div class="p-4 pt-0 grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20buy%20${encodeURIComponent(p.title)}" target="_blank"
+                           class="bg-gray-900 hover:bg-gray-800 text-gray-300 text-[11px] font-semibold py-2 rounded-xl flex items-center justify-center space-x-1 border border-gray-800 transition-all">
+                            <i class="fa-brands fa-whatsapp text-emerald-500"></i>
+                            <span>Buy</span>
+                        </a>
+                        <a href="https://wa.me/250782815825?text=Hello%20Nyirikamera,%20I%20want%20to%20rent%20${encodeURIComponent(p.title)}" target="_blank"
+                           class="bg-emerald-600/20 hover:bg-emerald-600 hover:text-white text-emerald-400 text-[11px] font-semibold py-2 rounded-xl flex items-center justify-center space-x-1 border border-emerald-500/30 transition-all">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Rent</span>
+                        </a>
+                    </div>
                 `;
+                grid.appendChild(card);
             });
         }
 
-        function setCategory(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('bg-orange-600', 'text-white', 'shadow-sm');
-                btn.classList.add('bg-slate-900', 'border', 'border-slate-800', 'text-slate-400');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Category filter pills
+            document.querySelectorAll('.cat-pill').forEach(pill => {
+                pill.addEventListener('click', (e) => {
+                    document.querySelectorAll('.cat-pill').forEach(p => {
+                        p.classList.remove('active', 'bg-accent', 'text-black');
+                        p.classList.add('bg-cardBg', 'text-gray-300');
+                    });
+                    e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300');
+                    e.currentTarget.classList.add('active', 'bg-accent', 'text-black');
+                    
+                    currentCategory = e.currentTarget.getAttribute('data-category');
+                    renderProducts();
+                });
             });
-            event.currentTarget.classList.remove('bg-slate-900', 'border', 'border-slate-800', 'text-slate-400');
-            event.currentTarget.classList.add('bg-orange-600', 'text-white', 'shadow-sm');
-            renderProducts();
-        }
 
-        function filterProducts() {
-            renderProducts();
-        }
+            // Live Search event listeners
+            const searchInput = document.getElementById('live-search');
+            const mobileSearchInput = document.getElementById('mobile-search');
 
-        function addToCart(id) {
-            const item = products.find(p => p.id === id);
-            cart.push(item);
-            updateCartUI();
-            openCart();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            document.getElementById('cart-badge').innerText = cart.length;
-            const container = document.getElementById('cart-items');
-            container.innerHTML = '';
-            
-            if (cart.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 text-center py-10 text-sm">Your order list is empty.</p>`;
-                document.getElementById('cart-total').innerText = "0 RWF";
-                return;
+            function handleSearch(e) {
+                searchQuery = e.target.value;
+                if(searchInput) searchInput.value = searchQuery;
+                if(mobileSearchInput) mobileSearchInput.value = searchQuery;
+                renderProducts();
             }
 
-            let totalEstimate = 0;
-            cart.forEach((item, index) => {
-                // Approximate extraction for total calculation if numeric string
-                container.innerHTML += `
-                    <div class="flex justify-between items-center bg-slate-950 p-4 rounded-xl border border-slate-800">
-                        <div>
-                            <h4 class="text-sm font-bold text-white">${item.title}</h4>
-                            <span class="text-xs text-orange-400 font-semibold">${item.price}</span>
-                        </div>
-                        <button onclick="removeFromCart(${index})" class="text-slate-500 hover:text-red-400 p-2"><i class="fa-solid fa-trash-can text-sm"></i></button>
-                    </div>
-                `;
-            });
-            document.getElementById('cart-total').innerText = `${cart.length} items selected`;
-        }
+            if(searchInput) searchInput.addEventListener('input', handleSearch);
+            if(mobileSearchInput) mobileSearchInput.addEventListener('input', handleSearch);
 
-        function openCart() {
-            document.getElementById('cart-modal').classList.remove('hidden');
-        }
-
-        function closeCart() {
-            document.getElementById('cart-modal').classList.add('hidden');
-        }
-
-        function checkoutWhatsApp() {
-            if (cart.length === 0) return;
-            let text = "Hello Nyirikamera, I would like to order/rent the following items:\n\n";
-            cart.forEach((item, i) => {
-                text += `${i + 1}. ${item.title} - ${item.price}\n`;
-            });
-            text += "\nPlease confirm availability and delivery in Kigali.";
-            const encoded = encodeURIComponent(text);
-            window.open(`https://wa.me/250780000000?text=${encoded}`, '_blank');
-        }
-
-        // Initialize
-        renderProducts();
+            renderProducts();
+        });
     </script>
 </body>
 </html>

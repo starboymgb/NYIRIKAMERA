@@ -58,7 +58,6 @@
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="audio">Pro Audio</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="lighting">Lighting</button>
                 <button class="cat-pill whitespace-nowrap bg-cardBg text-gray-300 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-gray-800" data-category="computer">Computers & Tech</button>
-                <button class="cat-pill whitespace-nowrap bg-cardBg text-accent hover:text-white px-4 py-1.5 rounded-full text-xs font-bold transition-all border border-accent/40 bg-accent/10" data-category="packages">✨ Event Packages</button>
             </div>
         </nav>
 
@@ -70,10 +69,7 @@
                 <div class="lg:col-span-3">
                     <div class="flex items-center justify-between mb-6">
                         <h1 id="section-title" class="text-xl font-black uppercase tracking-wide text-white">Featured Equipment</h1>
-                        <button id="open-admin-btn" class="bg-accent/10 border border-accent/40 text-accent hover:bg-accent hover:text-black px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 shadow-lg">
-                            <i class="fa-solid fa-plus-circle"></i>
-                            <span>Upload Product / Package</span>
-                        </button>
+                        <span class="text-xs text-gray-500">Kigali, Rwanda</span>
                     </div>
 
                     <!-- Dynamic Product Grid -->
@@ -111,86 +107,18 @@
     <!-- FOOTER -->
     <footer class="bg-darkBg border-t border-gray-800 py-10 mt-16 text-center text-sm text-gray-500">
         <p>© 2026 Nyirikamera E-Commerce & Media Production. Kigali, Rwanda.</p>
+        <p class="text-[11px] text-gray-600 mt-2"><a href="admin.html" class="hover:text-accent">Admin Portal</a></p>
     </footer>
-
-    <!-- EASY UPLOAD ADMIN MODAL -->
-    <div id="admin-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-cardBg border border-gray-700 w-full max-w-xl rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-lg bg-accent/20 text-accent flex items-center justify-center"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                    <h3 class="text-lg font-black text-white">Upload Gear or Event Package</h3>
-                </div>
-                <button id="close-admin-btn" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
-            </div>
-
-            <form id="add-product-form" class="space-y-4 mb-6">
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Item Title *</label>
-                    <input type="text" id="p-title" required placeholder="e.g. Platinum Wedding Coverage or Sony a7 IV" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Category *</label>
-                        <select id="p-category" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
-                            <option value="packages">✨ Event Package (Sidebar)</option>
-                            <option value="photography">Photography</option>
-                            <option value="videography">Videography</option>
-                            <option value="audio">Pro Audio</option>
-                            <option value="lighting">Lighting</option>
-                            <option value="computer">Computers & Tech</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Badge Tag</label>
-                        <input type="text" id="p-discount" placeholder="e.g. Most Popular / -10%" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Current Price *</label>
-                        <input type="text" id="p-price" required placeholder="e.g. 1,500,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Old Price / Value</label>
-                        <input type="text" id="p-oldprice" placeholder="e.g. 1,800,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Image URL (Optional)</label>
-                    <input type="text" id="p-image" placeholder="Paste image link, or leave blank for default icon" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Features / Specs (Separate with commas or bullets)</label>
-                    <textarea id="p-features" rows="3" placeholder="e.g. Full day 4K multi-cam coverage, Wireless audio included, Cinematic edit" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-accent hover:bg-accentHover text-black font-extrabold py-3 rounded-xl text-sm transition-all shadow-lg">Publish to Website Instantly</button>
-            </form>
-
-            <div class="border-t border-gray-800 pt-4">
-                <h4 class="text-xs font-bold uppercase text-gray-400 mb-3">Manage Existing Inventory</h4>
-                <div id="admin-inventory-list" class="space-y-2 max-h-40 overflow-y-auto pr-1"></div>
-            </div>
-        </div>
-    </div>
 
     <!-- EMBEDDED SCRIPT -->
     <script>
         const defaultProducts = [
-            // Gear
             { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", oldPrice: "2,500,000 RWF", discount: "-2%", stock: "1 in Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
             { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", oldPrice: "3,000,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
             { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", oldPrice: "500,000 RWF", discount: "-2%", stock: "2 in Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
             { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
             { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", oldPrice: "1,100,000 RWF", discount: "-10%", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
             { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", oldPrice: "4,100,000 RWF", discount: "-5%", stock: "1 in Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
-            
-            // Event Packages
             { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", oldPrice: "1,800,000 RWF", discount: "Most Popular", stock: "Full Day Coverage", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
             { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", oldPrice: "2,500,000 RWF", discount: "Pro Setup", stock: "3 Cameras + Live Feed", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
             { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", oldPrice: "1,000,000 RWF", discount: "Director's Pick", stock: "4K Cinema Production", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
@@ -202,16 +130,7 @@
                 localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
                 return defaultProducts;
             }
-            try {
-                return JSON.parse(stored);
-            } catch (e) {
-                localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
-                return defaultProducts;
-            }
-        }
-
-        function saveProducts(products) {
-            localStorage.setItem('nyirikamera_products', JSON.stringify(products));
+            try { return JSON.parse(stored); } catch (e) { return defaultProducts; }
         }
 
         function renderProducts(category = 'all') {
@@ -224,10 +143,10 @@
             grid.innerHTML = '';
             sidebarContainer.innerHTML = '';
 
-            // 1. Render Sidebar Event Packages (Always visible on the right)
+            // 1. Render Sidebar Event Packages
             const packages = products.filter(p => p.category.toLowerCase() === 'packages');
             if (packages.length === 0) {
-                sidebarContainer.innerHTML = `<div class="text-xs text-gray-500 text-center py-2">No packages added yet. Click Admin Panel to add one!</div>`;
+                sidebarContainer.innerHTML = `<div class="text-xs text-gray-500 text-center py-2">No packages available.</div>`;
             } else {
                 packages.forEach(pkg => {
                     const featureList = pkg.features ? pkg.features.split(',').map(f => `<li class="flex items-center"><i class="fa-solid fa-check text-accent mr-1.5 text-[10px]"></i> ${f.trim()}</li>`).join('') : '';
@@ -308,91 +227,19 @@
             });
         }
 
-        function renderAdminList() {
-            const list = document.getElementById('admin-inventory-list');
-            if (!list) return;
-            const products = getProducts();
-            list.innerHTML = '';
-            
-            if (products.length === 0) {
-                list.innerHTML = `<div class="text-gray-500 text-xs text-center py-2">No inventory items.</div>`;
-                return;
-            }
-
-            products.forEach(p => {
-                const row = document.createElement('div');
-                row.className = 'flex items-center justify-between bg-gray-900 p-2.5 rounded-xl border border-gray-800 text-xs';
-                row.innerHTML = `
-                    <span class="text-white font-medium truncate max-w-[240px]">${p.title} <span class="text-gray-500">(${p.category})</span></span>
-                    <button data-id="${p.id}" class="del-btn bg-red-600/20 text-red-400 px-2.5 py-1 rounded-lg hover:bg-red-600 hover:text-white transition-colors">Delete</button>
-                `;
-                list.appendChild(row);
-            });
-
-            document.querySelectorAll('.del-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const id = parseInt(e.currentTarget.getAttribute('data-id'));
-                    const updated = getProducts().filter(item => item.id !== id);
-                    saveProducts(updated);
-                    renderProducts(getCurrentCategory());
-                    renderAdminList();
-                });
-            });
-        }
-
-        function getCurrentCategory() {
-            const active = document.querySelector('.cat-pill.active');
-            return active ? active.getAttribute('data-category') : 'all';
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.cat-pill').forEach(pill => {
                 pill.addEventListener('click', (e) => {
                     document.querySelectorAll('.cat-pill').forEach(p => {
-                        p.classList.remove('active', 'bg-accent', 'text-black', 'bg-accent/10');
+                        p.classList.remove('active', 'bg-accent', 'text-black');
                         p.classList.add('bg-cardBg', 'text-gray-300');
                     });
-                    e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300', 'bg-accent/10');
+                    e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300');
                     e.currentTarget.classList.add('active', 'bg-accent', 'text-black');
                     
-                    const cat = e.currentTarget.getAttribute('data-category');
-                    renderProducts(cat);
+                    renderProducts(e.currentTarget.getAttribute('data-category'));
                 });
             });
-
-            const modal = document.getElementById('admin-modal');
-            const openBtn = document.getElementById('open-admin-btn');
-            const closeBtn = document.getElementById('close-admin-btn');
-
-            if (openBtn) openBtn.addEventListener('click', () => { modal.classList.remove('hidden'); renderAdminList(); });
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
-
-            const form = document.getElementById('add-product-form');
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const newP = {
-                        id: Date.now(),
-                        title: document.getElementById('p-title').value,
-                        price: document.getElementById('p-price').value,
-                        oldPrice: document.getElementById('p-oldprice').value,
-                        category: document.getElementById('p-category').value,
-                        discount: document.getElementById('p-discount').value || 'New Item',
-                        stock: 'In Stock',
-                        image: document.getElementById('p-image').value,
-                        features: document.getElementById('p-features').value,
-                        icon: 'fa-camera'
-                    };
-                    const products = getProducts();
-                    products.unshift(newP);
-                    saveProducts(products);
-                    form.reset();
-                    renderProducts(getCurrentCategory());
-                    renderAdminList();
-                    modal.classList.add('hidden');
-                    alert('Item published successfully to your website!');
-                });
-            }
 
             renderProducts('all');
         });

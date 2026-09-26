@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyirikamera — Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131c2e',
+                        accent: '#f59e0b',
+                        accentHover: '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkBg text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- PASSWORD LOGIN GATE -->
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-cardBg border border-gray-700 w-full max-w-md rounded-3xl p-8 shadow-2xl text-center">
+            <div class="w-12 h-12 bg-accent/20 text-accent rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h2 class="text-xl font-black text-white mb-2">Admin Authentication</h2>
+            <p class="text-xs text-gray-400 mb-6">Enter your secret admin passcode to manage gear and event packages.</p>
+            <form id="login-form" class="space-y-4">
+                <input type="password" id="admin-pass" required placeholder="Enter Passcode (default: 1234)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-center text-white focus:border-accent outline-none">
+                <button type="submit" class="w-full bg-accent hover:bg-accentHover text-black font-extrabold py-3 rounded-xl text-sm transition-all shadow-lg">Login to Dashboard</button>
+            </form>
+            <a href="index.html" class="block mt-4 text-xs text-gray-500 hover:text-white">← Back to Customer Store</a>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN DASHBOARD -->
+    <div id="admin-dashboard" class="hidden flex-col min-h-screen">
+        <!-- HEADER -->
+        <header class="bg-darkBg/90 border-b border-gray-800 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accent to-yellow-300 flex items-center justify-center shadow-lg shadow-accent/20">
+                        <i class="fa-solid fa-gauge-high text-black text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-black uppercase text-white">Admin Dashboard</h1>
+                        <p class="text-xs text-accent">Nyirikamera Management Portal</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>View Live Website</span>
+                    </a>
+                    <button id="logout-btn" class="bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD CONTENT -->
+        <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-grow">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- UPLOAD FORM (LEFT 2 COLUMNS) -->
+                <div class="md:col-span-2 bg-cardBg border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                    <div class="flex items-center space-x-2.5 pb-4 border-b border-gray-800 mb-6">
+                        <div class="w-8 h-8 rounded-lg bg-accent/20 text-accent flex items-center justify-center"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <h2 class="text-base font-black text-white uppercase">Upload New Gear or Package</h2>
+                    </div>
+
+                    <form id="add-product-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Item Title *</label>
+                            <input type="text" id="p-title" required placeholder="e.g. Platinum Wedding Package or Sony FX3" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Category *</label>
+                                <select id="p-category" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                                    <option value="packages">✨ Event Package (Sidebar)</option>
+                                    <option value="photography">Photography</option>
+                                    <option value="videography">Videography</option>
+                                    <option value="audio">Pro Audio</option>
+                                    <option value="lighting">Lighting</option>
+                                    <option value="computer">Computers & Tech</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Badge Tag</label>
+                                <input type="text" id="p-discount" placeholder="e.g. Most Popular / -10%" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Current Price *</label>
+                                <input type="text" id="p-price" required placeholder="e.g. 1,500,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Old Price / Value</label>
+                                <input type="text" id="p-oldprice" placeholder="e.g. 1,800,000 RWF" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Image URL (Optional)</label>
+                            <input type="text" id="p-image" placeholder="Paste image link, or leave blank for default icon" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Features / Specs (Separate with commas)</label>
+                            <textarea id="p-features" rows="3" placeholder="e.g. Full day coverage, Wireless audio, Cinematic edit" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-accent hover:bg-accentHover text-black font-extrabold py-3 rounded-xl text-sm transition-all shadow-lg">Publish Item Instantly</button>
+                    </form>
+                </div>
+
+                <!-- INVENTORY MANAGEMENT (RIGHT 1 COLUMN) -->
+                <div class="md:col-span-1 bg-cardBg border border-gray-800 rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 pb-4 border-b border-gray-800 mb-4">
+                            <i class="fa-solid fa-boxes-stacked text-accent"></i>
+                            <h3 class="text-sm font-black text-white uppercase">Active Inventory</h3>
+                        </div>
+                        <div id="admin-inventory-list" class="space-y-2.5 max-h-[400px] overflow-y-auto pr-1">
+                            <!-- Populated via script -->
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-800 text-center">
+                        <button id="reset-defaults-btn" class="text-xs text-gray-500 hover:text-red-400 transition-colors">Reset to Default Items</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="py-6 text-center text-xs text-gray-600 border-t border-gray-800">
+        Nyirikamera Secure Admin Portal © 2026
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        const defaultProducts = [
+            { id: 1, title: "Sony a7 IV Mirrorless Camera", category: "photography", price: "2,400,000 RWF", oldPrice: "2,500,000 RWF", discount: "-2%", stock: "1 in Stock", icon: "fa-camera", features: "Full-frame 33MP sensor, 4K 60p video, In-body stabilization" },
+            { id: 2, title: "Sony FX30 Digital Cinema Camera", category: "videography", price: "2,350,000 RWF", oldPrice: "3,000,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-video", features: "Super 35 4K sensor, Dual base ISO, S-Log3 recording" },
+            { id: 3, title: "Shure SM7B Professional Microphone", category: "audio", price: "290,000 RWF", oldPrice: "500,000 RWF", discount: "-2%", stock: "2 in Stock", icon: "fa-microphone", features: "Cardioid dynamic mic, Electromagnetic shield, Warm vocal response" },
+            { id: 4, title: "Godox AD300Pro Outdoor Flash", category: "lighting", price: "700,000 RWF", oldPrice: "900,000 RWF", discount: "-3%", stock: "1 in Stock", icon: "fa-bolt", features: "300Ws TTL power, Lithium battery, Bi-color modeling light" },
+            { id: 5, title: "DJI Ronin RS 3 Pro Gimbal", category: "videography", price: "950,000 RWF", oldPrice: "1,100,000 RWF", discount: "-10%", stock: "In Stock", icon: "fa-video", features: "Carbon fiber build, LiDAR focus support, 4.5kg payload" },
+            { id: 6, title: "MacBook Pro 16\" M3 Max", category: "computer", price: "3,800,000 RWF", oldPrice: "4,100,000 RWF", discount: "-5%", stock: "1 in Stock", icon: "fa-laptop", features: "M3 Max chip, 36GB RAM, 1TB SSD Liquid Retina XDR" },
+            { id: 101, title: "Gold Wedding Package", category: "packages", price: "1,500,000 RWF", oldPrice: "1,800,000 RWF", discount: "Most Popular", stock: "Full Day Coverage", icon: "fa-ring", features: "Full day 4K multi-cam coverage, Professional wireless audio & lighting, Cinematic highlight film + full edit" },
+            { id: 102, title: "Concert & Live Stage", category: "packages", price: "2,200,000 RWF", oldPrice: "2,500,000 RWF", discount: "Pro Setup", stock: "3 Cameras + Live Feed", icon: "fa-sliders", features: "3-Camera live stage setup, Direct live video feed & recording, Pro audio board multi-track sync" },
+            { id: 103, title: "Music Video & Commercial", category: "packages", price: "850,000 RWF", oldPrice: "1,000,000 RWF", discount: "Director's Pick", stock: "4K Cinema Production", icon: "fa-film", features: "4K Cinema camera & gimbals, Professional creative direction, Advanced color grading & VFX" }
+        ];
+
+        function getProducts() {
+            const stored = localStorage.getItem('nyirikamera_products');
+            if (!stored || stored === "[]") {
+                localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
+                return defaultProducts;
+            }
+            try { return JSON.parse(stored); } catch (e) { return defaultProducts; }
+        }
+
+        function saveProducts(products) {
+            localStorage.setItem('nyirikamera_products', JSON.stringify(products));
+        }
+
+        function renderAdminList() {
+            const list = document.getElementById('admin-inventory-list');
+            if (!list) return;
+            const products = getProducts();
+            list.innerHTML = '';
+            
+            if (products.length === 0) {
+                list.innerHTML = `<div class="text-gray-500 text-xs text-center py-4">No inventory items.</div>`;
+                return;
+            }
+
+            products.forEach(p => {
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between bg-gray-900 p-2.5 rounded-xl border border-gray-800 text-xs';
+                row.innerHTML = `
+                    <div class="truncate max-w-[180px]">
+                        <span class="text-white font-medium block truncate">${p.title}</span>
+                        <span class="text-[10px] text-accent uppercase">${p.category}</span>
+                    </div>
+                    <button data-id="${p.id}" class="del-btn bg-red-600/20 text-red-400 px-2 py-1 rounded-lg hover:bg-red-600 hover:text-white transition-colors">Delete</button>
+                `;
+                list.appendChild(row);
+            });
+
+            document.querySelectorAll('.del-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(e.currentTarget.getAttribute('data-id'));
+                    const updated = getProducts().filter(item => item.id !== id);
+                    saveProducts(updated);
+                    renderAdminList();
+                });
+            });
+        }
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === '1234') { // You can change your password here
+                document.getElementById('auth-modal').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                document.getElementById('admin-dashboard').classList.add('flex');
+                renderAdminList();
+            } else {
+                alert('Incorrect passcode! (Default passcode is 1234)');
+            }
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            location.reload();
+        });
+
+        const form = document.getElementById('add-product-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newP = {
+                    id: Date.now(),
+                    title: document.getElementById('p-title').value,
+                    price: document.getElementById('p-price').value,
+                    oldPrice: document.getElementById('p-oldprice').value,
+                    category: document.getElementById('p-category').value,
+                    discount: document.getElementById('p-discount').value || 'New Item',
+                    stock: 'In Stock',
+                    image: document.getElementById('p-image').value,
+                    features: document.getElementById('p-features').value,
+                    icon: 'fa-camera'
+                };
+                const products = getProducts();
+                products.unshift(newP);
+                saveProducts(products);
+                form.reset();
+                renderAdminList();
+                alert('Item published successfully!');
+            });
+        }
+
+        document.getElementById('reset-defaults-btn').addEventListener('click', () => {
+            if (confirm('Reset all inventory back to defaults?')) {
+                localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
+                renderAdminList();
+                alert('Inventory reset!');
+            }
+        });
+    </script>
+</body>
+</html>

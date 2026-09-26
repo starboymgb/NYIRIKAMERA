@@ -111,9 +111,10 @@
                             </div>
                         </div>
 
+                        <!-- NEW IMAGE UPLOAD FILE PICKER -->
                         <div>
-                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Image URL (Optional)</label>
-                            <input type="text" id="p-image" placeholder="Paste image link, or leave blank for default icon" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-accent outline-none">
+                            <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Upload Product Image (From Device)</label>
+                            <input type="file" id="p-image-file" accept="image/*" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2 text-xs text-gray-300 file:mr-4 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-accent file:text-black hover:file:bg-accentHover cursor-pointer">
                         </div>
 
                         <div>
@@ -213,7 +214,7 @@
         document.getElementById('login-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const pass = document.getElementById('admin-pass').value;
-            if (pass === '1234') { // You can change your password here
+            if (pass === '1234') {
                 document.getElementById('auth-modal').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
                 document.getElementById('admin-dashboard').classList.add('flex');
@@ -231,24 +232,47 @@
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const newP = {
-                    id: Date.now(),
-                    title: document.getElementById('p-title').value,
-                    price: document.getElementById('p-price').value,
-                    oldPrice: document.getElementById('p-oldprice').value,
-                    category: document.getElementById('p-category').value,
-                    discount: document.getElementById('p-discount').value || 'New Item',
-                    stock: 'In Stock',
-                    image: document.getElementById('p-image').value,
-                    features: document.getElementById('p-features').value,
-                    icon: 'fa-camera'
-                };
-                const products = getProducts();
-                products.unshift(newP);
-                saveProducts(products);
-                form.reset();
-                renderAdminList();
-                alert('Item published successfully!');
+                
+                const fileInput = document.getElementById('p-image-file');
+                const title = document.getElementById('p-title').value;
+                const price = document.getElementById('p-price').value;
+                const oldPrice = document.getElementById('p-oldprice').value;
+                const category = document.getElementById('p-category').value;
+                const discount = document.getElementById('p-discount').value || 'New Item';
+                const features = document.getElementById('p-features').value;
+
+                // Handle Image File conversion to Base64
+                if (fileInput.files && fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(uploadEvent) {
+                        const base64Image = uploadEvent.target.result;
+                        saveNewProduct(base64Image);
+                    };
+                    reader.readAsDataURL(fileInput.files[0]);
+                } else {
+                    saveNewProduct(''); // No image uploaded, fallback to icon
+                }
+
+                function saveNewProduct(imageUrl) {
+                    const newP = {
+                        id: Date.now(),
+                        title: title,
+                        price: price,
+                        oldPrice: oldPrice,
+                        category: category,
+                        discount: discount,
+                        stock: 'In Stock',
+                        image: imageUrl,
+                        features: features,
+                        icon: 'fa-camera'
+                    };
+                    const products = getProducts();
+                    products.unshift(newP);
+                    saveProducts(products);
+                    form.reset();
+                    renderAdminList();
+                    alert('Item and image published successfully!');
+                }
             });
         }
 

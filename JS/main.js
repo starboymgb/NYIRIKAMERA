@@ -8,11 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getProducts() {
         const stored = localStorage.getItem('nyirikamera_products');
-        if (!stored) {
+        if (!stored || stored === "[]") {
             localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
             return defaultProducts;
         }
-        return JSON.parse(stored);
+        try {
+            return JSON.parse(stored);
+        } catch (e) {
+            localStorage.setItem('nyirikamera_products', JSON.stringify(defaultProducts));
+            return defaultProducts;
+        }
     }
 
     function saveProducts(products) {
@@ -26,10 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const products = getProducts();
         grid.innerHTML = '';
 
-        const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+        // Normalize filter check (supports both 'all' and 'All Gear')
+        const filtered = (category === 'all' || category === 'All Gear') 
+            ? products 
+            : products.filter(p => p.category.toLowerCase() === category.toLowerCase());
 
         if (filtered.length === 0) {
-            grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No items found in this category.</div>`;
+            grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">No items found in this category. Click 'Admin Panel' above to add gear!</div>`;
             return;
         }
 
@@ -43,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fa-solid ${p.icon || 'fa-camera'} text-gray-700 text-5xl"></i>
                     </div>
                     <div class="p-4">
-                        <span class="text-[10px] uppercase font-bold text-accent tracking-wider">${p.stock}</span>
+                        <span class="text-[10px] uppercase font-bold text-accent tracking-wider">${p.stock || 'In Stock'}</span>
                         <h3 class="text-sm font-bold text-white mt-1 mb-2 line-clamp-2 hover:text-accent transition-colors">${p.title}</h3>
                         <div class="flex items-center space-x-2">
                             <span class="text-base font-black text-accent">${p.price}</span>
@@ -68,12 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!list) return;
         const products = getProducts();
         list.innerHTML = '';
+        
+        if (products.length === 0) {
+            list.innerHTML = `<div class="text-gray-500 text-xs text-center py-2">No inventory items.</div>`;
+            return;
+        }
+
         products.forEach(p => {
             const row = document.createElement('div');
             row.className = 'flex items-center justify-between bg-gray-900 p-2.5 rounded-xl border border-gray-800 text-xs';
             row.innerHTML = `
                 <span class="text-white font-medium">${p.title}</span>
-                <button data-id="${p.id}" class="del-btn bg-red-600/20 text-red-400 px-2 py-1 rounded-lg">Delete</button>
+                <button data-id="${p.id}" class="del-btn bg-red-600/20 text-red-400 px-2 py-1 rounded-lg hover:bg-red-600 hover:text-white transition-colors">Delete</button>
             `;
             list.appendChild(row);
         });
@@ -94,14 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return active ? active.getAttribute('data-category') : 'all';
     }
 
-    // Category filter pills click
+    // Category filter pills click handler
     document.querySelectorAll('.cat-pill').forEach(pill => {
         pill.addEventListener('click', (e) => {
-            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active', 'bg-accent', 'text-black'));
-            document.querySelectorAll('.cat-pill').forEach(p => p.classList.add('bg-cardBg', 'text-gray-300'));
+            document.querySelectorAll('.cat-pill').forEach(p => {
+                p.classList.remove('active', 'bg-accent', 'text-black');
+                p.classList.add('bg-cardBg', 'text-gray-300');
+            });
             e.currentTarget.classList.remove('bg-cardBg', 'text-gray-300');
             e.currentTarget.classList.add('active', 'bg-accent', 'text-black');
-            renderProducts(e.currentTarget.getAttribute('data-category'));
+            
+            const cat = e.currentTarget.getAttribute('data-category');
+            renderProducts(cat);
         });
     });
 
@@ -138,5 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Initial render on page load
     renderProducts('all');
 });
